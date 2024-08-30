@@ -23,7 +23,9 @@ En la terminal que acabamos de instalar.
 Vamos a instalar el compilador gcc.
 copiando el siguiente comando:
 
+`
 pacman -S mingw-w64-ucrt-x86_64-gcc
+`
 ![](img/terminal1.png)
 Ya lo tendriamos instalado.
 ![](img/fin_instalacion_gcc.png)
@@ -31,9 +33,17 @@ Ya lo tendriamos instalado.
 Acontinuación tenemos que actualizar los paquetes. 
 Cerramos esta terminal y abrimos la terminal MSYS2 MSYS buscandola en el menu de windows.
 
-Introducimos el comando: pacman -Suy
+Introducimos el comando: 
 
-Seguido del comando: pacman -S --needed base-devel mingw-w64-x86_64-toolchain
+`
+pacman -Suy
+`
+
+Seguido del comando: 
+
+`
+pacman -S --needed base-devel mingw-w64-x86_64-toolchain
+`
 
 Nos da la opctión de seleccionar que queremos instalar. 
 En nuestro caso vamos a seleccionar todos introduciendo enter.
@@ -81,13 +91,19 @@ Pulsamos F1 y escribimos: integrated terminal
 
 Nos dirigimos a la dirección donde se encuentra nuestro archivo .cpp en la terminal y escribimos:
 
+`
 c++ nombre_del_archivo.cpp -o hola_mundo.exe
+`
 
 -o significa asignarle una salida.
 
 ![](img/compilacion1.png)
 
-Acontinuación ejecutamos el ejecutable que se nos ha creado. Introduciendo: /hola_mundo.exe
+Acontinuación ejecutamos el ejecutable que se nos ha creado. Introduciendo: 
+
+`
+/hola_mundo.exe
+`
 
 ![](img/compilacion2.png)
 
