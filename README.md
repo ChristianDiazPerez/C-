@@ -1,6 +1,11 @@
 
 # Manual personal de C++
-## Instalación
+## Índice 
+
+1. [Instalación](#id1)
+2. [Primer progrma](#id2)
+
+## Instalación <div id="id1"></div>
 Necesitamos instalar la extension de C/C++ de VScode
 ![](img/extension.png)
 Si utilizamos windows necesitamos instalar el compilador.
@@ -47,6 +52,7 @@ pacman -S --needed base-devel mingw-w64-x86_64-toolchain
 
 Nos da la opctión de seleccionar que queremos instalar. 
 En nuestro caso vamos a seleccionar todos introduciendo enter.
+
 ![](img/terminal2.png)
 
 Ya hemos terminado de instalr todo.
@@ -81,7 +87,7 @@ Al comprobar de nuevo la versión.
 ![](img/terminal_fin.png)
 Con esto ya hemos finalizado completamente la instalación del compilador gcc.
 
-## Primer progrma
+## Primer progrma <div id="id2"></div>
 
 Escribimos un Hola mundo.
 ![](img/progrma11.png)
