@@ -5,6 +5,7 @@
 1. [Instalación](#id1)
 2. [Primer progrma](#id2)
 3. [Elementos de un programa](#id3)
+4. [Tipos de datos y varibles](#id4)
 
 ## Instalación <div id="id1"></div>
 Necesitamos instalar la extension de C/C++ de VScode
@@ -141,11 +142,11 @@ int main()
 ```
 
 ```C++
-#include <iosstram>
+#include <iostream>
 ```
 Biblioteca
 
-Incluye todo un conjunto de herramientas y funciones que pueden ser llamadas en el programa. Entre ellas la función count.
+Incluye todo un conjunto de clases y funciones que pueden ser llamadas en el programa. Entre ellas la función count.
 
 ```C++
 unsing namespace std;
@@ -153,20 +154,88 @@ unsing namespace std;
 Sentencias o declaraciones.
 Indica que vamos a utilizar el espacio de nombres std.
 
+En este caso la biblioteca std contiene a la función iostream
+
 **Espacios de nombres**
+Conjunto de funciones que contienen una biblioteca.
+Sirve para evitar los conflictos de nombres.
 
 ```C++
 int main()
 ```
+Funcion principal. 
+Secuencia de instrucciones que se ejecutan de arriba a abajo.
+
+>Todo progrma empieza a ejecutarse en la primera línea de la función main.
+Y termina con la última línea que contienen las llaves de la función main.
 
 ```C++
-count
+cout << "Hola mundo" << endl;
 ``` 
+Character out. Sacar por consola un mensaje.
+**endl** Es un salto de línea.
 
 ```C++
-return 0
+return 0;
 ```
+Las funciones siempre nos devuelven un valor. Excepto las funciones del tipo void.
 
+## Tipos de datos y variables <div id="id4"></div>
+
+### Caracteres
+![](img/caracteres.png)
+
+Carácteres o enteros pequeños.
+
+Enteros con signo del -128 al 127.
+
+Enteros sin signo del 0 al 255.
+
+### Enteros
+![](img/enteros.png)
+
+Pueden ser sin signo. En este caso el valor se duplica.
+
+### Decimales
+![](img/decimales.png)
+
+Por ejemplo en un floal son: 38 decimales a la derecha y 38 decimales a la izquierda.
+
+### Booleanos
+![](img/boleano.png)
+Se puede sustituir por 0 o 1.
+
+### Variable
+
+Espacio en la memoria donde se almacena un valor que puede variar.
+
+Se almacena en la memoria RAM. 
+Al apagar el ordenador se borra.
+
+>C++ Es un lenguaje fuertemente tipado.
+
+Es necesario especificar de que tipo es esa variable.
+
+Las variables siempre se deben declarar antes de utilizarlas.
+
+### Eemplo
+
+Para declarar una variable. 2 opciones.
+![](img/variable1.png)
+
+Primero declarar la varible.
+
+Lego inicializarla (Asignarle un valor).
+
+Útil si en el momento de declararla todavía no tenemos claro que valor le vamos a asignar.
+
+![](img/variable2.png)
+
+O declararla e inicializarla a la vez.
+
+![](img/programa_variable.png)
+
+En este ejemplo se ve como el flujo del progrma va de arriba a abajo. 
 
 
 
