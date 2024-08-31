@@ -1,7 +1,8 @@
 #include <iostream>
+using namespace std;
 
-int main(int argc, char const *argv[])
+int main()
 {
-    std::cout << "Hola mundo nazi" << std::endl;
+    cout << "Hola mundo" << endl;
     return 0;
 }

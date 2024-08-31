@@ -4,6 +4,7 @@
 
 1. [Instalación](#id1)
 2. [Primer progrma](#id2)
+3. [Elementos de un programa](#id3)
 
 ## Instalación <div id="id1"></div>
 Necesitamos instalar la extension de C/C++ de VScode
@@ -87,6 +88,7 @@ Al comprobar de nuevo la versión.
 ![](img/terminal_fin.png)
 Con esto ya hemos finalizado completamente la instalación del compilador gcc.
 
+
 ## Primer progrma <div id="id2"></div>
 
 Escribimos un Hola mundo.
@@ -124,6 +126,47 @@ Vamos a instalar una extensión a Visual Studio Code para compilar y ejecutar di
 Apretando este boton el ejecuta las órdenes de la terminal por nosotros.
 
 ![](img/code_runner2.png)
+
+## Elementos de un progrma <div id="id3"></div>
+
+```C++
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    cout << "Hola mundo" << endl;
+    return 0;
+}
+```
+
+```C++
+#include <iosstram>
+```
+Biblioteca
+
+Incluye todo un conjunto de herramientas y funciones que pueden ser llamadas en el programa. Entre ellas la función count.
+
+```C++
+unsing namespace std;
+```
+Sentencias o declaraciones.
+Indica que vamos a utilizar el espacio de nombres std.
+
+**Espacios de nombres**
+
+```C++
+int main()
+```
+
+```C++
+count
+``` 
+
+```C++
+return 0
+```
+
 
 
 
