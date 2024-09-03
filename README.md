@@ -6,6 +6,23 @@
 2. [Primer progrma](#id2)
 3. [Elementos de un programa](#id3)
 4. [Tipos de datos y varibles](#id4)
+5. [Introducir dato desde la terminal](#id5)
+6. [](#id6)
+7. [](#id7)
+8. [](#id8)
+9. [](#id9)
+10. [](#id10)
+11. [](#id11)
+12. [](#id12)
+13. [](#id13)
+14. [](#id14)
+15. [](#id15)
+16. [](#id16)
+17. [](#id17)
+18. [](#id18)
+19. [](#id19)
+20. [](#id20)
+
 
 ## Instalación <div id="id1"></div>
 Necesitamos instalar la extension de C/C++ de VScode
@@ -235,8 +252,45 @@ O declararla e inicializarla a la vez.
 
 ![](img/programa_variable.png)
 
-En este ejemplo se ve como el flujo del progrma va de arriba a abajo. 
+En este ejemplo se ve como el flujo del progrma va de arriba a abajo.
 
+**C++ es case sensitive.**
+
+Es decir, la variable **C**asa y **c**asa, son dos varibles diferentes. Afectan las mayusculas y minúsculas al nombre de la variable. 
+
+## Introducir dato desde la terminal <div id="id5"></div>
+El usuario da un valor a una variable a través de la consola.
+
+```c
+cin >> salario;
+```
+![](img/cin_1.png)
+
+primero declaramos la varibale entero salario, Sin darle un valor (inicializarla).
+
+Porsteriormente asignamos el valor a través de la la función **cin**, escribiendo el valor en la consola y pulsando enter.
+
+
+
+
+
+
+
+## <div id="id6"></div>
+## <div id="id7"></div>
+## <div id="id8"></div>
+## <div id="id9"></div>
+## <div id="id10"></div>
+## <div id="id11"></div>
+## <div id="id12"></div>
+## <div id="id13"></div>
+## <div id="id14"></div>
+## <div id="id15"></div>
+## <div id="id16"></div>
+## <div id="id17"></div>
+## <div id="id18"></div>
+## <div id="id19"></div>
+## <div id="id20"></div>
 
 
 
