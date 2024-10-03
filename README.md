@@ -7,7 +7,7 @@
 3. [Elementos de un programa](#id3)
 4. [Tipos de datos y varibles](#id4)
 5. [Introducir dato desde la terminal](#id5)
-6. [](#id6)
+6. [Constante](#id6)
 7. [](#id7)
 8. [](#id8)
 9. [](#id9)
@@ -270,13 +270,40 @@ primero declaramos la varibale entero salario, Sin darle un valor (inicializarla
 
 Porsteriormente asignamos el valor a través de la la función **cin**, escribiendo el valor en la consola y pulsando enter.
 
+## Constante<div id="id6"></div>
+Una constante almacena un valor que **no puede cambiar.**
+
+Se deben declarar e inicializar al mismo tiempo.
+
+Tipos de constantes:
+
+### Literales
+
+**Expresiones o secuencias de escape**
+
+**/n** Salto de línea
+
+**/t** Tabulación
+
+**/b** Espacio horizontal
+
+### Declaradas
+Dispone de la palabra reservada const
+```C++
+Const double iva = 0.21;
+```
+### Expresiones constanstes 
+
+### Constantes enumeradas
+
+### Definidas
+Uso obsoleto.
+
+```c++
+#define double iva = 0.21;
+```
 
 
-
-
-
-
-## <div id="id6"></div>
 ## <div id="id7"></div>
 ## <div id="id8"></div>
 ## <div id="id9"></div>
