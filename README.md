@@ -8,8 +8,8 @@
 4. [Tipos de datos y varibles](#id4)
 5. [Introducir dato desde la terminal](#id5)
 6. [Constante](#id6)
-7. [](#id7)
-8. [](#id8)
+7. [Array](#id7)
+8. [Array bidimensional](#id8)
 9. [](#id9)
 10. [](#id10)
 11. [](#id11)
@@ -304,8 +304,83 @@ Uso obsoleto.
 ```
 
 
-## <div id="id7"></div>
-## <div id="id8"></div>
+## Array<div id="id7"></div>
+Estructura que contienen varios valores del mismo tipo.
+
+Almacena valores que tienen algo en común.
+
+Una vez declaramos el array, no podemos modificar el número de elementos que contiene. Pero si el valor de cada uno de ellos.
+
+### Declaración e inicialización
+
+Varias formas:
+
+
+```c++
+int mi_array [5]{15,25,8,-7,92};
+```
+
+Array de enteros, de longitud 5 y con estos valores: **15 25 8 -7 92**
+
+```c++
+int mi_array [5]{15,25};
+```
+
+Array de enteros, de longitud 5 y con estos valores: **15 25 0 0 0**
+
+```c++
+float mi_array [5]{2.5};
+```
+
+Array de floats, de longitud 5 y con todos los valores iguales: **2.5 2.5 2.5 2.5 2.5**
+
+```c++
+int mi_array []{2,7,8,7,5,1};
+```
+No indicamos la longitud del array. Esta es tomada de la cantidad de valores introducidos.
+
+Array de enteros, de **longitud 6** y con estos valores: **2 7 8 7 5 1**
+
+### Declaración e inicialización por separado
+
+El array empieza en la posición 0.
+
+![](img/array1.png)
+
+```c++
+// Declaración
+int mi_array [5];
+
+//Almacenamiento
+mi_array[0]=15;
+mi_array[1]=28;
+mi_array[2]=8;
+mi_array[3]=-7;
+mi_array[4]=92;
+```
+
+Para acceder al los valores de las diferentes posiciones:
+
+```c++
+//Acceso
+mi_array[0];
+mi_array[1];
+mi_array[2];
+mi_array[3];
+mi_array[4];
+```
+
+### Sobrescritura
+Modificación del valor de un elemento del array. Siempre introduciendo un valor del mismo tipo que el array.
+
+```c++
+mi_array[4]=88;
+```
+## Array bidimensional<div id="id8"></div>
+
+
+
+
 ## <div id="id9"></div>
 ## <div id="id10"></div>
 ## <div id="id11"></div>
