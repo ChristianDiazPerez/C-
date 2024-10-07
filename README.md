@@ -378,7 +378,84 @@ mi_array[4]=88;
 ```
 ## Array bidimensional<div id="id8"></div>
 
+Array que en cada una de su posición se desdobla e incluye otro array.
+Contiene dos índices.
+#### Array mono dimensional
+![](img/array1.png)
+#### Array bidimensional
+![](img/arraybidimensional1.png)
 
+### Declaración e inicialización 
+
+Dos formas.
+
+```c++
+int mi_array[4][5]={15,25,8,-7,92,77,12,11,7,44,56,59,43,78,12,43,95,12,87,33};
+```
+```c++
+int mi_array[4][5]={
+    {15,25,8,-7,92},
+    {77,12,11,7,44},
+    {56,59,43,78,12},
+    {43,95,12,87,33}
+    };
+```
+Multiplicamos los íncides para obtener el número de elementos que contiene ele array.
+4 x 5 = 20.
+
+### Almacenamiento individual 
+
+```c++
+//Almacenamiento
+mi_array[0][0]=15;
+mi_array[0][1]=25;
+mi_array[0][2]=8;
+mi_array[0][3]=-7;
+mi_array[0][4]=92;
+```
+Previamente tenemos que declarar el array.
+
+### Acceso
+
+```c++
+//Acceso
+mi_array[0][0]
+```
+
+Normalmente, el array bidimensional se declara y su contenido es escrito mediante dos bucles for anidados. 
+Uno recorre las filas y otro las columnas.
+
+```c++
+#include <iostream>
+using namespace std;
+
+int main (){
+
+    //Declaración del array
+    int array_bidimensional[5][5];  
+
+    cout << "Introduce cada valor" << endl ;
+
+    //2 bucles for anidados para escribir los valores por consola
+    for (int fila=0; fila<4; fila++){
+        for (int columna=0; columna<5; columna++){
+            cin >> array_bidimensional[fila][columna];
+        }
+
+    }
+    cout << "Array bidimensional introducido:" << endl ;
+
+    //2 bucles for anidados para imprimir los valores 
+    for (int a=0; a<4; a++){
+        cout<< endl;
+        for (int b=0; b<5; b++){
+            cout<< array_bidimensional[a][b]<< " ";
+        }
+    }
+    
+}
+```
+![](img/arraybidimensional2.png)
 
 
 ## <div id="id9"></div>
