@@ -21,5 +21,4 @@ int main (){
             cout<< array_bidimensional[a][b]<< " ";
         }
     }
-    
 }
