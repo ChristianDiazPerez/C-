@@ -2,23 +2,26 @@
 using namespace std;
 
 int main (){
-
-    int array_bidimensional[5][5];
+    //Declaración del array bidimensional
+    int array_bidimensional[3][3];
 
     cout << "Introduce cada valor" << endl ;
 
-    for (int fila=0; fila<4; fila++){
-        for (int columna=0; columna<5; columna++){
+    //Dos bucles for anidados para introducir los valores por consola
+    for (int fila=0; fila<3; fila++){
+        for (int columna=0; columna<3; columna++){
             cin >> array_bidimensional[fila][columna];
         }
 
     }
     cout << "Array bidimensional introducido:" << endl ;
 
-    for (int a=0; a<4; a++){
-        cout<< endl;
-        for (int b=0; b<5; b++){
+    //Dos bucles for anidados para imprimir los valores 
+    for (int a=0; a<3; a++){
+        for (int b=0; b<3; b++){
             cout<< array_bidimensional[a][b]<< " ";
         }
+        cout<< endl;
+
     }
 }

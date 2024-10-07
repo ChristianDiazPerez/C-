@@ -425,37 +425,39 @@ mi_array[0][0]
 Normalmente, el array bidimensional se declara y su contenido es escrito mediante dos bucles for anidados. 
 Uno recorre las filas y otro las columnas.
 
+En el siguiente ejemplo. Introducimos un array por consola, para finalmente imprimirlo en pantalla.
+
 ```c++
 #include <iostream>
 using namespace std;
 
 int main (){
-
-    //Declaración del array
-    int array_bidimensional[5][5];  
+    //Declaración del array bidimensional
+    int array_bidimensional[3][3];
 
     cout << "Introduce cada valor" << endl ;
 
-    //2 bucles for anidados para escribir los valores por consola
-    for (int fila=0; fila<4; fila++){
-        for (int columna=0; columna<5; columna++){
+    //Dos bucles for anidados para introducir los valores por consola
+    for (int fila=0; fila<3; fila++){
+        for (int columna=0; columna<3; columna++){
             cin >> array_bidimensional[fila][columna];
         }
 
     }
     cout << "Array bidimensional introducido:" << endl ;
 
-    //2 bucles for anidados para imprimir los valores 
-    for (int a=0; a<4; a++){
-        cout<< endl;
-        for (int b=0; b<5; b++){
+    //Dos bucles for anidados para imprimir los valores 
+    for (int a=0; a<3; a++){
+        for (int b=0; b<3; b++){
             cout<< array_bidimensional[a][b]<< " ";
         }
+        cout<< endl;
+
     }
-    
 }
 ```
-![](img/arraybidimensional2.png)
+![](img/arraybidimensional3.png)
+
 
 
 ## <div id="id9"></div>
