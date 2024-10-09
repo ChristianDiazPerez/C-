@@ -10,7 +10,7 @@
 6. [Constante](#id6)
 7. [Array](#id7)
 8. [Array bidimensional](#id8)
-9. [](#id9)
+9. [Arrays multidimensionales](#id9)
 10. [](#id10)
 11. [](#id11)
 12. [](#id12)
@@ -460,7 +460,66 @@ int main (){
 
 
 
-## <div id="id9"></div>
+## Arrays multidimensionales<div id="id9"></div>
+
+Arrays de multiples dimensiones.
+
+Un ejemplo de su uso:
+
+Registrar los coches que pasan por un punto en cada hora a lo largo de todo un año.
+
+```c++
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    //Declaración del array tridimensional
+    int paso_coches[24][31][12]; // Hora, dia, mes
+
+    //Almacenamiento de un valor 
+    paso_coches[7][20][5]=500;
+
+    //Acceso 
+    cout << "Valor: "<<  paso_coches[7][20][5];
+}
+```
+
+Mediante esta estructura de 3 bucles for anidados podemos completar todo el array de numeros aleatorios del 0 al 1000.
+
+```c++
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    //Declaración del array tridimensional
+    int paso_coches[24][31][12]; // Hora, dia, mes
+
+    //Almacenamiento de valores aleatorios para todo el array
+    for (int i=0; i<24; i++){
+
+        for (int j=0; j<31; j++){
+
+            for (int z=0; z<31; z++){
+
+                paso_coches[i][j][z]= rand ()%1000;
+            }
+        }
+        
+    }
+
+    //Acceso 
+    cout << "Valor: "<<  paso_coches[7][20][5];
+}
+```
+Si por error accedemos a un valor fuera de los límites del array. Por ejemplo: 
+
+![](img/arraytridimensionalerror1.png)
+
+El programa no cae y nos devuelve un valor fuera de límites.
+
+
 ## <div id="id10"></div>
 ## <div id="id11"></div>
 ## <div id="id12"></div>
