@@ -11,7 +11,7 @@
 7. [Array](#id7)
 8. [Array bidimensional](#id8)
 9. [Arrays multidimensionales](#id9)
-10. [](#id10)
+10. [Vectores](#id10)
 11. [](#id11)
 12. [](#id12)
 13. [](#id13)
@@ -519,8 +519,140 @@ Si por error accedemos a un valor fuera de los límites del array. Por ejemplo:
 
 El programa no cae y nos devuelve un valor fuera de límites.
 
+![](img/arraytridimensionalerror2.png)
 
-## <div id="id10"></div>
+C++ confia en que el programador no se equivoque. 
+
+Este error se puede solucionar con el apartado siguiente.
+
+## Vectores<div id="id10"></div>
+Muy parecido a los arrays.
+
+Es una clase de la librería estándar de C++.
+
+Crea estructuras contenedoras para almacenar datos de formas secuencial.
+
+Pueden crecer o decrecer de tamaño de forma dinámica a diferencia de los arrays.
+
+Proporcionan múltiples métodos para chequear límites, tamaño, comprobar si existe un elemento, etc.
+
+Almacenan los valores en posiciones contiguas de la memoria y también en posiciones separadas accesibles a través de punteros.
+
+### Declaración 
+Declaración de dos vectores de diferente tipo.
+
+```c++
+#include <iostream>
+#include <vector> //Necesario incluir la libreria vector
+using namespace std; 
+
+int main(){
+
+    //Declaración del vector 
+    vector <int> numeros;
+    
+    vector <char> letras;
+}
+```
+Es imprescindible incluir la libreria vector.
+
+También podemos asignar un tamaño al vector al declararlo. Pero no es necesario. Ya que el tamaño es dinámico. Se ajustará automáticamente.
+
+```c++
+#include <iostream>
+#include <vector> //Necesario incluir la libreria vector
+using namespace std; 
+
+int main(){
+
+    //Declaración del vector 
+    vector <int> numeros(5); //5 datos de tipo entero
+    
+    vector <char> letras(7); //7 datos de tipo caracter 
+}
+```
+De momento, al no haberle asignado valores al los vectores. El vector tipo int almacena 0 en todas sus posiciones. Y el tipo char almacena valores indeterminados.
+
+### Acceso
+
+Recorremos dos dos vectores con un bucle for.
+
+```c++
+#include <iostream>
+#include <vector> 
+using namespace std; 
+
+int main(){
+
+    //Declaración del vector 
+    vector <int> numeros(5);
+
+    vector <char> letras(7);
+
+    //Recorrido de vectores
+    for (int i=0; i<5;i++){
+        cout << numeros[i] << endl;
+    }
+    for (int j=0; j<5;j++){
+        cout << letras[j] << endl;
+    }
+}
+```
+![](img/vectores1.png)
+
+Da como resultado 5 ceros y 7 carácteres indeterminados.
+
+### Declarar e inicializar 
+
+```c++
+vector <int> numeros{1,2,3,4,5,6};
+vector <char> letras{'a','b','c','d'};
+``` 
+Los carácteres van entre comillas simples.
+
+### Declarar e inicializar con el mismo valor
+
+```c++
+vector <double> salario_base(350, 1500.50);
+```
+Este vector tiene 350 posiciones, todas con el mismo valor.
+
+### Bucle While
+La mayoría de veces no sabemos cuantos elementos tiene un vector. Por su tamaño varible. 
+
+Por lo que debemos utilizar un bucle while para recorrerlo. Ya que se trata de un bucle indeterminado.
+
+```c++
+#include <iostream>
+#include <vector> 
+using namespace std; 
+
+int main(){
+
+    vector <double> salario_base(11, 1500.50);
+
+    int i=0;
+
+    while (i<salario_base.size()){   //Método de la libreria vector para tomar el tamaño
+
+        cout << salario_base[i] << endl;
+
+        i++; // Al terminar la lectura incrementar el valor de i
+    }
+}
+```
+![](img/vectores2.png)
+
+### Escritura de valores 
+
+Utilizaremos dos métodos 
+
+
+
+
+
+
+
 ## <div id="id11"></div>
 ## <div id="id12"></div>
 ## <div id="id13"></div>
