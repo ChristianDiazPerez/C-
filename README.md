@@ -12,7 +12,7 @@
 8. [Array bidimensional](#id8)
 9. [Arrays multidimensionales](#id9)
 10. [Vectores](#id10)
-11. [](#id11)
+11. [Operadores](#id11)
 12. [](#id12)
 13. [](#id13)
 14. [](#id14)
@@ -645,15 +645,129 @@ int main(){
 
 ### Escritura de valores 
 
-Utilizaremos dos métodos 
+Utilizaremos dos métodos:
+* at()
+* push_back()
+
+Estos métodos estan pensados para trabajr con los vectores dinámicamente (ya que cambian de tamaño).
+
+Si accedemos a una posición fuera de límites obtendremos un valor indeterminado.
+
+Como en el siguiente ejemplo accediendo a la posición **700**.
+
+```c++
+#include <iostream>
+#include <vector> 
+using namespace std; 
+
+int main(){
+
+    vector <int> numeros{1,2,3,4,5};
+    
+    cout << numeros[3] << endl;
+    cout << numeros[700] << endl;
+}
+```
+![](img/alocatedmemory1.png)
+
+### Método at()
+Nos devuelve un valor del vector y además **comprueba si la posición se encuentra entre los límites del vector**.
+```c++
+#include <iostream>
+#include <vector> 
+using namespace std; 
+
+int main(){
+
+    vector <int> numeros{1,2,3,4,5};
+    
+    cout << numeros.at(3) << endl;
+    cout << numeros.at(700) << endl;
+}
+```
+![](img/alocatedmemory2.png)
+En este caso. La posición si se encuentra entre los límites y se imprime el valor. 
+
+Pero la posición 700 no se encuentra entre los límites. Por lo que el programa lanza una **excepión**.
+
+Además el método at() se utiliza para escribir un valor.
+
+```c++
+#include <iostream>
+#include <vector> 
+using namespace std; 
+
+int main(){
+
+    vector <int> numeros{1,2,3,4,5};  //Declaración e inicialización
+    
+    numeros.at(3)=40;  //Sobreescritura
+
+    cout << numeros.at(3) << endl; //Lectura
+}
+```
+![](img/metodoat.png)
+
+También me lanzará una excepción si intento escribir en una posición fuera de límites.
+
+```c++
+numeros.at(3)=40;
+```
+### Método push_back()
+Almacena un valor mas e incrementa en uno el tamaño del vector.
+```c++
+#include <iostream>
+#include <vector> 
+using namespace std; 
+
+int main(){
+
+    vector <int> numeros{1,2,3,4,5};  
+
+    numeros.push_back(80);
+
+    int i =0;
+
+    while (i<numeros.size())
+    {
+        cout << numeros.at(i) << endl;
+        i++;
+    }
+}
+```
+![](img/push_back1.png)
+
+## Operadores<div id="id11"></div>
+
+### Asignación
+![](img/Asignacion.png)
+
+El operador += se utiliza para sumar dos variables sin ser necesario declarar una tercera variable para alojar el resultado de la operación.
+
+```c++
+#include <iostream>
+using namespace std; 
+
+int main (){
+    int a = 1;
+    int b = 2;
+
+    b+=a; //Operador +=
+
+    cout << b;
+}
+```
+El mismo funcionamiento para los demás operadores.
+
+### Aritméticos 
+![](img/aritmeticos.png)
+* **a++** Incrementa en uno el valor
+* **a--** Disminuye en uno el valor
+* **++a**
+* **--a**
 
 
 
-
-
-
-
-## <div id="id11"></div>
 ## <div id="id12"></div>
 ## <div id="id13"></div>
 ## <div id="id14"></div>
