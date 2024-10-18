@@ -761,10 +761,55 @@ El mismo funcionamiento para los demás operadores.
 
 ### Aritméticos 
 ![](img/aritmeticos.png)
+* **%** Módulo o residio. Resto de una divión.
 * **a++** Incrementa en uno el valor
 * **a--** Disminuye en uno el valor
-* **++a**
-* **--a**
+* **++a** Incrementa en uno el valor
+* **--a** Disminuye en uno el valor
+
+Aunque realizan la misma función, se diferencian en el **momento en el que asignan el valor**.
+
+#### Preincremento 
+```c++
+#include <iostream>
+using namespace std; 
+
+int main (){
+
+    int a = 1;
+    int b=++a;
+
+    cout <<"a = "<< a << endl;
+    cout <<"b = "<< b << endl;
+}
+```
+![](img/preincremento.png)
+
+Primero se incrementa el valor de la variable A.
+Posteriormente se asigna el valor de la variable A a B.
+
+A la variable b se le asigna el valor ya incrementado de a.
+
+#### Postincremento
+```c++
+#include <iostream>
+using namespace std; 
+
+int main (){
+
+    int a = 1;
+    int b=a++;
+
+    cout <<"a = "<< a << endl;
+    cout <<"b = "<< b << endl;
+}
+```
+![](img/postincremento.png)
+
+Primero es asignado el valor de A en B, y posteriormente se incrementrá el valor de la variable A.
+
+Mismo funcionamiento para los decrementos.
+
 
 
 
