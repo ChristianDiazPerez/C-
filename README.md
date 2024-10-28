@@ -13,8 +13,8 @@
 9. [Arrays multidimensionales](#id9)
 10. [Vectores](#id10)
 11. [Operadores](#id11)
-12. [](#id12)
-13. [](#id13)
+12. [Convenciones](#id12)
+13. [Condicional If](#id13)
 14. [](#id14)
 15. [](#id15)
 16. [](#id16)
@@ -872,13 +872,45 @@ int main (){
     cout << resultado << endl << typeid(resultado).name(); 
 }
 ```
+![](img/mediaresultado2.png)
+
+Este resultado si es el correcto. Ya que la variable resultado **toma el tipo de variable mas preciso.** En este caso float.
+
+### Comparación
+![](img/operadoresdecomparacion.png)
+
+Sobretodo se utilizan para el control de condicionales y bucles.
+
+### Operadores lógicos
+![](img/operadoreslogicos.png)
+
+
+## Convenciones <div id="id12"></div>
+Recomendaciones para nombrar diferentes elementos en C++.
+
+![](img/convenciones.png)
+
+
+## Condicional If <div id="id13"></div>
+```c++
+if(){
+
+}
+```
+```c++
+if(){
+
+}
+else{
+
+}
+```
 
 
 
 
 
 
-## <div id="id12"></div>
 ## <div id="id13"></div>
 ## <div id="id14"></div>
 ## <div id="id15"></div>
