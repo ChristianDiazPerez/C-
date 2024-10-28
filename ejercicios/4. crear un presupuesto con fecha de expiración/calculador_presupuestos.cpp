@@ -6,7 +6,7 @@ const float precio_media = 35.5;
 const float precio_alta = 55.3;
 const float iva = 0.21;
 
-//productos seleccionados
+//productos seleccisonados
 int cantidad_media;
 int cantidad_alta;
 

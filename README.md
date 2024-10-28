@@ -810,6 +810,71 @@ Primero es asignado el valor de A en B, y posteriormente se incrementrá el valo
 
 Mismo funcionamiento para los decrementos.
 
+### Conversiones de tipos 
+Al realizar una operación entre variables de diferente tipo, en la variable resultado se realiza una conversión del tipo.
+Conversiones implícitas.
+
+
+> **El tipo de dato del resultado será el tipo de dato más amplio.**
+
+![](img/conversiondetipo1.png)
+
+```c++
+#include <iostream>
+using namespace std; 
+
+int main (){
+
+    int a = 3;
+    float b= 2.5f;
+    double c = 8.0;
+
+    auto resultado = b+c; //con auto se le asigna el tipo que mejor se le ajuste automáticamente a la variable 
+
+    cout << typeid(resultado).name(); //devuelve la primera letra del tipo de la variable
+}
+```
+En este caso, imprime una f.
+
+Por ejempo. Vamos a realizar la media aritmética de 3 valores.
+
+```c++
+#include <iostream>
+using namespace std; 
+
+int main (){
+    // todas las variables enteras
+    int a = 10;
+    int  b= 12;
+    int  c = 30;
+
+    auto resultado = (a+b+c)/3; 
+
+    cout << resultado << endl << typeid(resultado).name(); 
+}
+```
+![](img/mediaresultado1.png)
+
+En este caso nos devuelve como resultado un entero. Por lo que esta operación es incorrecta. Ya que el resultado real de la media es un número decimal.
+
+```c++
+#include <iostream>
+using namespace std; 
+
+int main (){
+
+    int a = 10; //entero
+    int  b= 12; //entero
+    float  c = 30; //decimal 
+
+    auto resultado = (a+b+c)/3; 
+
+    cout << resultado << endl << typeid(resultado).name(); 
+}
+```
+
+
+
 
 
 
