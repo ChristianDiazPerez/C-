@@ -15,11 +15,11 @@
 11. [Operadores](#id11)
 12. [Convenciones](#id12)
 13. [Condicional If](#id13)
-14. [](#id14)
-15. [](#id15)
-16. [](#id16)
-17. [](#id17)
-18. [](#id18)
+14. [Bucles](#id14)
+15. [Bucle For](#id15)
+16. [Bucle For-Each](#id16)
+17. [Bucle While](#id17)
+18. [Bucle Do-Wile](#id18)
 19. [](#id19)
 20. [](#id20)
 
@@ -79,6 +79,7 @@ Ya hemos terminado de instalr todo.
 Cerramos la terminal y la volvemos a abrir.
 
 Comprobamos la versión instalada.
+
 ![](img/terminal3.png)
 
 Esto no significa que no esté instalado. Si no que no está añadido al path. Es decir, no sabe donde está este programa. 
@@ -884,6 +885,14 @@ Sobretodo se utilizan para el control de condicionales y bucles.
 ### Operadores lógicos
 ![](img/operadoreslogicos.png)
 
+Se pueden concatenar comparaciones.
+
+```c++
+if (calificacion > 8 || (distancia>28 && ingreso < 2000) ){
+
+}
+```
+En este caso, para que se ejecute el código del if, calificación debe de ser superior a 8, o que se cumplan las otras dos condiciones a la vez.
 
 ## Convenciones <div id="id12"></div>
 Recomendaciones para nombrar diferentes elementos en C++.
@@ -905,20 +914,239 @@ else{
 
 }
 ```
+## Condicional switch-case
+Útil para cuando tenemos que evaluar muchas condiciones a la vez.
+
+Podríamos llegar al mismo resultando concatenando muchos if else. Pero esta opción es mucho más cómoda.
+
+```c++
+switch (variable){
+    case valor1:
+        //Bloque de código para este caso
+        break;
+
+    case valor2:
+        //Bloque de código para este caso
+        break;
+    default:
+        //Bloque de código para cuando no se cumpla ninguna de los casos anteriores
+}
+```
+**No es posible utilizar switch-case para comparar floats o strings.**
+
+Utilizar switch-case para que el usuario elija el funcionamiento de un progrma.
+
+```c++
+#include <iostream>
+using namespace std; 
+
+int main (){
+
+    int opcion;
+
+    cout << "MENU"<< endl << endl;
+    cout << "1. Mostrar mensaje"<< endl;
+    cout << "2. Calcular la suma"<< endl;
+    cout << "3. Salir del progrma"<< endl;
+    cout << "4. Introduce la opcion deseada (1 , 2 o 3)"<< endl;
+    cin >> opcion;
+
+    switch(opcion){
+        case 1:
+            cout << "Realizar mostrar mensaje" << endl;   
+            break;
+        
+        case 2:
+            cout << "Realizar calcular la suma" << endl;   
+            break;
+        
+        case 3:
+            cout << "Realizar salir del progrma" << endl;   
+            break;
+
+        default:
+            cout << "numero introducido incorrecto" << endl;   
+    }
+}
+```
+![](img/switch1.png)
+
+Para un mismo case podemos poner varias condiciones. 
+
+![](img/case_doble.png)
+Las siguientes líneas de código se ejecutarán siempre que la variable idioma sea 'e' o 'E'.
+
+Esto puede ser útil en menús para evitar un error al no hacer distinción entre mayúscula y minuscula.
+
+Es posible anidar un switch dentro de otro.
+
+![](img/switch_anidado.png)
+
+El Switch principal evalua idioma. Y el switch anidado evalua categoría.
+
+### Operador ternario o condicional
+Función idéntica a la de la estructura If-Else.
+
+Es recomendable utilizarlo cuando las condiciones son sencillas. Ya que ahorra líneas de código.
+
+![](img/operador_condicional.png)
+
+Entre paréntesis la condición a evaluar, seguido de un signo de interrogación. 
+A continuación, la acción a ejecutar cuando sea verdadero, dos puntos, la acción para cuando sea falso.
+
+Ejemplo. Discriminar si un número es par o impar.
+
+```C++
+#include <iostream>
+using namespace std; 
+
+int main (){
+
+    int numero;
+    cout << "Introduce un mumero" <<endl;
+    cin >> numero;
+    /*     SENTENCIA IF-ELSE EQUIVALENTE
+    if (numero%2 == 0){
+        cout << "numero PAR";
+    }
+    else{
+        cout << "numero IMPAR";
+    }
+    */
+   cout << "Numero " << ((numero%2==0)?"PAR":"INPAR");
+}
+```
+En este caso, al incluir el operador condicional en un cout, este ha de ir entre paréntesis. Devido al órden de preferencia de operadores.
+
+![](img/resultado_operadorcondicional1.png)
 
 
 
 
 
 
-## <div id="id13"></div>
-## <div id="id14"></div>
-## <div id="id15"></div>
-## <div id="id16"></div>
-## <div id="id17"></div>
+
+## Bucles<div id="id13"></div>
+2 tipos. 
+* **Determinados**
+
+Antes de ejecutar un progrma, sabemos la cantidad de veces que va a ejecutar el código en su interior.
+
+Suele ser el bucle for.
+* **Indeterminados**
+
+No podemos saber la cantidad de veces que va a ejecutar el código en su interior.
+
+Suele ser los bucles while y do-while.
+```c++
+while (condicion){
+    //código
+}
+```
+## Bucle For<div id="id14"></div>
+For (Inicialización ; Condición ; Incremento){Cuerpo 
+}
+```c++
+for (int i=0; i<5; i++){
+    //código
+}
+```
+Este bucle se ejecuta 5 veces. i=0, i=1, i=2, i=3 e i=4.
+
+## Bucle For-Each<div id="id15"></div>
+
+Utilizado para recorrer colecciones, como los arrays o los contenedores (vector,list,set,map,etc).
+
+**Por cada** elemento de una colección ejecuta un código.
+
+Es ideal para **recorrer contenedores dinámicos**. Crecen o decrecen.
+
+```c++
+#include <iostream>
+using namespace std; 
+
+int main(){
+    int edades[]{25,24,72,2,0};
+    
+    for(int i:edades){
+        cout << i << endl;
+    }
+}
+```
+![](img/resultado_for-each1.png)
+
+La colección puede crecer todo lo que quiera, que el bucle For-Each le recorrerá de principio a fin.
+
+La limitación es que solo podemos recorrer el array si la variable i del bucle la declaramos con el mismo tipo que el tipo del array.
+
+### Inferencia de tipos
+Característica de C++. Permite detectar el tipo de dato de una colección y ajustar el bulcle For-Each a este.
+
+```c++
+#include <iostream>
+using namespace std; 
+
+int main(){
+    int edades[]{25,24,72,2,0};
+
+    for(auto i:edades){  //definimos i como auto
+        cout << i << endl;
+    }
+}
+```
+Obtenemos el mismo resultado que en el ejemplo anterior. 
+
+Podemos recorrer un string para encontrar si contiene @ un correo electrónico.
+```c++
+#include <iostream>
+using namespace std; 
+
+int main(){
+    string email="pedro@gmail.com";
+
+    for(auto i:email){
+        cout << ((i=='@')?"Hay @":"no hay") << endl;
+    }
+}
+```
+![](img/resultado_correo1.png)
+
+Ejemplo. **Combinación de bucle while y for-each.**
+Vamos a introducir por consola los números que el usuario quiera en un vector y luego le vamos a recorrer.
+
+```c++
+#include <iostream>
+#include <vector>
+using namespace std; 
+
+int main(){
+    vector <int> numeros;  //Vector a recorrer
+    int num; //numeros que vamos introduciendo
+
+    cout << "Intoduce los numeros que quiera y para terminar intoroduce 0"<<endl;
+
+    //Se ejecuta siempre que introduzcamos un número y este sea distinto de 0
+    while (cin >> num && num!=0){ 
+        //Vamos incrementando el vector con los números introducidos
+        numeros.push_back(num);
+    }
+    
+    cout << "Has introducido estos numeros:"<<endl;
+
+    for(auto i:numeros){   //Recorremos el vector
+        cout << i << endl;
+    }
+}
+```
+![](img/for-each y while.png)
+
+
+
+
+
+
+## Bucle While<div id="id16"></div>
+## Bucle Do-Wile<div id="id17"></div>
 ## <div id="id18"></div>
 ## <div id="id19"></div>
 ## <div id="id20"></div>
-
-
-
