@@ -20,8 +20,18 @@
 16. [Bucle For-Each](#id16)
 17. [Bucle While](#id17)
 18. [Bucle Do-Wile](#id18)
-19. [](#id19)
-20. [](#id20)
+19. [Intruccione break](#id19)
+20. [Intruccion continue ](#id20)
+21. [](#id21)
+22. [](#id22)
+23. [](#id23)
+24. [](#id24)
+25. [](#id25)
+26. [](#id26)
+27. [](#id27)
+28. [](#id28)
+29. [](#id29)
+30. [](#id30)
 
 
 ## Instalación <div id="id1"></div>
@@ -1044,7 +1054,7 @@ while (condicion){
 }
 ```
 ## Bucle For<div id="id14"></div>
-For (Inicialización ; Condición ; Incremento){Cuerpo 
+for (Inicialización ; Condición ; Incremento){Cuerpo 
 }
 ```c++
 for (int i=0; i<5; i++){
@@ -1141,13 +1151,154 @@ int main(){
 ![](img/for-each_y_while.png)
 
 
-
-
-
-
-
 ## Bucle While<div id="id16"></div>
+Bucle indeterminado.
+Repite el código un número indeterminado de veces, hasta que se produce una **condición de parada**.
+
+while(condicion){cuerpo}
+
+La condición en cualquier momento, mientras se está ejecutando el código puede cambiar de estado. True o False.
+
+Podemos crear bucles infinitos.
+
+Ejemplo. Indicar por consola si un número es par.
+
+```c++
+#include <iostream>
+using namespace std; 
+
+int main(){
+
+    int numero{2};
+
+    while (numero<10){  //Se esjecuta siempre que número sea menor que 10
+        if (numero%2==0){
+            cout << numero << " Es par"<<endl; 
+        }
+        
+    }
+}
+```
+Como la condición del bucle while siempre será verdadera. Entra el progrma en un bucle infinito.
+
+![](img/bucle_infinito1.png)
+
+Para solucionar esto. Por ejemplo, incrementamos el valor de num a cada vuelta de ejecución. 
+Entoncess, se ejecutará el mensaje hasta que num llegue a 10.
+Saliendo del bucle y terminado el programa.
+
+```c++
+#include <iostream>
+using namespace std; 
+
+int main(){
+
+    int numero{2};
+
+    while (numero<10){  //Se esjecuta siempre que número sea menor que 10
+        if (numero%2==0){
+            cout << numero << " Es par"<<endl; 
+        }
+        numero++; //Incremento a cada vuelta
+    }
+}
+```
+![](img/bucle_infinito2.png)
+
+Ejemplo: Introducir una lista de numeros indetreminada y hacer la suma de estos.
+```c++
+#include <iostream>
+#include <vector>;
+using namespace std; 
+
+int main(){
+    vector <int> numeros;
+    int num;
+    int suma=0;
+
+    cout << "Introduzca los numeros menores que 20. Para terminar introduzca 0."<<endl;
+    cin >> num;
+
+    //Cuando el num introducido valga 0 o sea mayor que 20 sale del bucle
+    while(num!=0 && num<20){
+        cout << "Numero introducido: "<< num <<endl;
+        numeros.push_back(num); //Metemos el valor en el vector 
+        suma=suma + num;  //Realizamos la suma hasta el momento
+
+        cin >> num; //volvemos a preguntar por un nuevo número
+        //De lo contrario, entraremos en un bucle infinito
+    }
+
+    cout << "Los numeros introducidos son:"<<endl;
+    //Recorrer todo el vector para imprimir los valores
+    for(auto i:numeros){
+        cout << i << "  ";
+    }
+
+    cout << endl << "La suma es:"<<endl;
+    cout <<suma;
+}
+```
+![](img/ejercicio_bucle_while1.png)
 ## Bucle Do-Wile<div id="id17"></div>
-## <div id="id18"></div>
-## <div id="id19"></div>
+Mismo funcionamiento que el bucle while. Además, si no se cumplen la condición. Se ejecuta una única vez en toda la ejecución del progrma.
+
+**Nos asegura que se va a ejecutar al menos una vez.**
+
+do {
+    cuerpo
+
+}
+
+while(condición);
+
+Por ejemplo. Un menú que disponga de dos opciones y una tercera de salida. Hasta que no selecionemos la salida no salimos del bucle. 
+
+Incluso si introducimos algo diferente a la salida tampoco salimos.
+
+```c++
+#include <iostream>
+using namespace std; 
+
+int main(){
+    int seleccion=0;
+
+    do{
+        cout <<"Seleccione una opcion.\n";
+        cout <<"1. Opcion 1\n";
+        cout <<"2 Opcion 2\n";
+        cout <<"3. Salir\n";
+        cin >> seleccion;
+        if (seleccion==1) cout <<"OPCION 1\n";
+        if (seleccion==2) cout <<"OPCION 2\n";
+    }
+    while (seleccion!=3);
+
+    cout <<"Ha seleccionado salir\n";
+    cout <<"Seguimos con el programa\n";
+}
+```
+![](img/do_while1.png)
+
+## Intruccion break y continue <div id="id18"></div>
+Al ejecurtarse, sale del bucle sin importar si la condición del bucle se sigue cumpliendo.
+
+
+
+
+
+## Intruccion continue <div id="id19"></div>
+
+
+
 ## <div id="id20"></div>
+## <div id="id21"></div>
+## <div id="id22"></div>
+## <div id="id23"></div>
+## <div id="id24"></div>
+## <div id="id25"></div>
+## <div id="id26"></div>
+## <div id="id27"></div>
+## <div id="id28"></div>
+## <div id="id29"></div>
+## <div id="id30"></div>
