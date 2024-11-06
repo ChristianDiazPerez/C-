@@ -1138,7 +1138,8 @@ int main(){
     }
 }
 ```
-![](img/for-each y while.png)
+![](img/for-each_y_while.png)
+
 
 
 
