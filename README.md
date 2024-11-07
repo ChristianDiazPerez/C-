@@ -22,7 +22,7 @@
 18. [Bucle Do-Wile](#id18)
 19. [Intruccione break](#id19)
 20. [Intruccion continue ](#id20)
-21. [](#id21)
+21. [Bucles infinitos](#id21)
 22. [](#id22)
 23. [](#id23)
 24. [](#id24)
@@ -1280,18 +1280,91 @@ int main(){
 ```
 ![](img/do_while1.png)
 
-## Intruccion break y continue <div id="id18"></div>
+## Intrucción break<div id="id18"></div>
 Al ejecurtarse, sale del bucle sin importar si la condición del bucle se sigue cumpliendo.
 
+Sirve para optimizar el progrma. Ahorrar recursos del sistema.
+
+Ejemplo. Vamos a recorrer un vector de nombres para en contrar uno en concreto.
+```c++
+#include <iostream>
+#include <vector>
+using namespace std; 
+
+int main(){
+
+vector<string>nombres{"Maria","Luisa","Juan","Pedro","Paco"};
+string busqueda = "Luisa";
+
+for (int i=0;i<nombres.size();i++){
+    cout <<"Lectura de la posicion "<<i<<endl;
+
+    if(nombres[i]==busqueda){
+        cout << "Nombre: "<<nombres[i]<<"encontrado. En la posicion "<<i<<endl;
+        //break;
+    }
+}
+
+cout <<"Continua el progrma\n";
+}
+```
+![](img/break1.png)
+con el break comentado. Encuenta el nombre, pero sigue recorriendo el vector.
+![](img/break2.png)
+Incluyendo el break. Al encontrar el nombre, salimos del bubucle.
+
+## Intrucción continue <div id="id19"></div>
+Al ejecutarse, el bucle deja de ejecutar las acciones para el valor en el que se encuentra y salta al siguiente valor.
+
+Ejemplo. Recorrer numeros del 1 al 5 saltandonos el número 3.
+```c++
+#include <iostream>
+using namespace std; 
+
+int main(){
+    for(int i=0; i<6; i++){
+        if(i==3){
+            continue;
+        }
+        cout<< i <<endl;
+    }
+}
+```
+![](img/continue1.png)
+
+Otro ejemplo más práctico. En un vector con precios. Aplicar un descuento a los precios superiores a 100.
+```c++
+#include <iostream>
+#include <vector>
+using namespace std; 
+
+vector<float>precios{50,60,200,100,40,300};
+float descuento = 0.20; 
+float precio_final;
+
+int main(){
+    cout << "Precios con descuentos \n\n";
+
+    for(int i=0; i<precios.size(); i++){
+        if(precios[i]<100){ //Siempre que el precio sea menor que 100 salimos de esta vuelta del bucle
+            continue;
+        }
+    
+        
+        precio_final=precios[i]-(precios[i]*descuento);
+
+        cout<< "El precio: " << precios[i]<<" se queda en: "<<precio_final<<endl;
+    }
+    cout << "Continua el programa";
+}
+```
+![](img/continue2.png)
+
+## Bucles infinitos<div id="id20"></div>
 
 
 
 
-## Intruccion continue <div id="id19"></div>
-
-
-
-## <div id="id20"></div>
 ## <div id="id21"></div>
 ## <div id="id22"></div>
 ## <div id="id23"></div>
