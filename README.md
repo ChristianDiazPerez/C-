@@ -23,7 +23,7 @@
 19. [Intruccione break](#id19)
 20. [Intruccion continue ](#id20)
 21. [Bucles infinitos](#id21)
-22. [](#id22)
+22. [Bucles anidados](#id22)
 23. [](#id23)
 24. [](#id24)
 25. [](#id25)
@@ -1361,11 +1361,93 @@ int main(){
 ![](img/continue2.png)
 
 ## Bucles infinitos<div id="id20"></div>
+En la mayoría de ocasiones se considera un error. El progrma queda atascado.
+
+Hay escenarios en los que pueden ser necesario. Aplicaciones que deban ejecutarse constantemente. 
+
+Por ejemplo un chat. Sistemas que quedan a la espera de que interactue el usuario con ellos.
+
+Dos formas de realizar bucles infinitos.
+
+```c++
+for(;;){
+}
+```
+```c++
+while(true){
+}
+```
+Por ejemplo. Reproducir la medida de un sensor cada 3 segundos en todo momento. Y que cuando supere la temperatura un valor determinado, mande una alerta.
+
+Para ello es necesario utilizar algunas funciones de C++ que por el momento no conocemos.
+
+```c++
+#include <iostream>
+#include <thread> //libreria hilos
+#include <chrono> //libreria chrono
+using namespace std;  
+
+double leerTemperatura(){ //Funcion crear valores de temperatura 
+    //Es double, porque el retorno es un valor double
+    return 20.0 + (rand() % 20); //A 20 le sumo un número aleatorio entre 0 y 19.9999999(el 20 no está incluido en la experesión). 
+    //Por lo que la lectura será de 20 a 40.
+}
+
+void esperarSegundos(int segundos){ //Funcion pausar el hilo de ejecucion
+    this_thread::sleep_for(chrono::seconds(segundos));
+}
 
 
+int main(){
+    const double limiteTemperatura = 35.0;
 
+    for(;;){
+        
+        double temperaturaActual = leerTemperatura(); //Asignamos la temperatura de lectura a la función 
+        cout << "Temperatura actual: "<<temperaturaActual<< " grados"<<endl;
+        if(temperaturaActual>limiteTemperatura){
+            cout << "ALERTA !!! Temperatura maxima alcanzada. "<<temperaturaActual<<" grados"<<endl;
+        }
+        esperarSegundos(3); //pausamos el hilo de ejecución 3s
+    }
+}
+```
+![](img/bucleinfinito1.png)
 
-## <div id="id21"></div>
+## Bucles anidados<div id="id21"></div>
+Combinaciones multiples de bucles unos dentro de otros.
+
+Casos de uso:
+
+* Recorridos de arrays y vectores multidimensionales
+* Generar combinaciones 
+* Simulación de combinaciones
+* Fuerza bruta
+* Renderizado grágico
+* Juegos 
+* Ordenamiento
+* Operaciones con cadenas
+* Creación de entornos gráficos
+
+Ejemplo. Imprimir en pantalla las tablas de multiplicar.
+
+```c++
+#include <iostream>
+using namespace std;  
+int main(){
+    for(int i=0;i<11;i++){  //eje i
+        for(int y=0;y<11;y++){ //eje y
+        int resultado=i*y;
+        cout << i <<" X "<<y<<"= "<<resultado<<endl;
+        }
+        cout << endl;
+    }
+}
+```
+![](img/tablasdemultiplicar.png)
+
+Y continua hasta la del 10.
+
 ## <div id="id22"></div>
 ## <div id="id23"></div>
 ## <div id="id24"></div>
