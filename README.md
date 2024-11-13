@@ -24,14 +24,24 @@
 20. [Intruccion continue ](#id20)
 21. [Bucles infinitos](#id21)
 22. [Bucles anidados](#id22)
-23. [](#id23)
-24. [](#id24)
-25. [](#id25)
-26. [](#id26)
+23. [Generar números aleatorios](#id23)
+24. [Funciones](#id24)
+25. [Paso de parámetros por valor y referencia](#id25)
+26. [Sobrecarga de funciones](#id26)
 27. [](#id27)
 28. [](#id28)
 29. [](#id29)
 30. [](#id30)
+31. [](#id31)
+32. [](#id32)
+33. [](#id33)
+34. [](#id34)
+35. [](#id35)
+36. [](#id36)
+37. [](#id37)
+38. [](#id38)
+39. [](#id39)
+40. [](#id40)
 
 
 ## Instalación <div id="id1"></div>
@@ -1448,12 +1458,383 @@ int main(){
 
 Y continua hasta la del 10.
 
-## <div id="id22"></div>
-## <div id="id23"></div>
-## <div id="id24"></div>
-## <div id="id25"></div>
-## <div id="id26"></div>
-## <div id="id27"></div>
+## Generar números aleatorios<div id="id22"></div>
+Utilizamos anteriormente la experesión.
+```c++
+    int numero=rand() % 101;
+```
+Para en la variable número, se asignará valores aleatorios del 0 al 100, cada vez que se ejecute esta línea de código en un bucle.
+
+Esto no es del todo cierto, ya que se creará un **patrón de números que siempre se repite**. Por lo que su funcionamiento no es del todo aleatorio.
+
+Para solucionar esto, es fundamental el concepto semilla.
+
+> **Semilla**
+    o "seed" es un valor inicial utilizado para generar números aleatorios. Este valor inicial es importante porque determina la secuencia de números aleatorios que se generarán. Si usas la misma semilla cada vez que ejecutas un programa, obtendrás la misma secuencia de números aleatorios, lo que puede no ser deseado si necesitas resultados impredecibles.
+
+La idea es **cambiar la semilla constantemente.**
+
+```c++
+#include <iostream>
+#include <cstdlib> //métodos rand() y srand()
+#include <ctime> //método time()
+#include <thread> //libreria hilos
+using namespace std;
+
+int main(){
+    
+    while(true){
+        srand(time(nullptr));
+        int numero=rand() % 101;
+
+        cout << numero <<endl;
+        this_thread::sleep_for(chrono::seconds(2)); //Parar la ejecución del hilo 2 segundos
+    }    
+}
+```
+![](img/numeros_aleatorios_reales.png)
+
+**srand()** -> Cambia la semilla
+
+**time()** -> Time devuelve el tiempo actual desde la media noche del 01/01/1970.
+
+Nos devuelve el tiempo que ha pasado desde entonces hasta la actualidad en segundos.
+
+a la función time() le pasamos el argumento **nullptr**.
+
+**nullptr nos devuelve el tiempo actual.**
+
+Cada vez que se ejecute el progrma, la semilla será diferente, ya que el tiempo no es el mismo.
+
+## Funciones<div id="id24"></div>
+Bloque de código que se identifica con un nombre. Puede tener datos de entrada y devolver datos de salida.
+
+Utilidades:
+* Reutilización de código
+* Dividir un programa en partes
+* Abstracción 
+* Reducción de errores
+
+Tipos de funciones:
+* Definidad por el promio lenguaje. 
+
+    Incluidas en la biblioteca estandar de C++.
+
+    https://en.cppreference.com/w/
+
+* Definidad por el usuario.
+
+    Creadas por el programador.
+
+Por ejemplo. Si queremos utilizar la función pow. Tenemos que incluir esta librería.
+![](img/pow1.png)
+```c++
+#include <cmath> 
+```
+Ejemplo. Crear una función que eleve un número a la potencia.
+
+Necesitamos incluir la libreria cmath. Para utilizar la función standar para elevar a la potencia. 
+
+Además vamos a encapsular esta función en una función definida por el usuario.
+
+```c++
+#include <iostream>
+#include <cmath> //Método pow (elevar a la potencia)
+using namespace std;  
+
+//DEFINICIÓN DE LA FUNCIÓN - Fuera de la función main
+
+// función del tipo double porque su salida es double, definimos dos argumentos del tipo double como entrada
+double elevar_potencia(double base, double exponente){ 
+    return pow(base,exponente); 
+    //la salida es el resultado de la operación
+    }
+
+int main(){
+
+    //LLAMADA A LA FUNCIÓN, con los dos valores deseados de entrada
+    cout << elevar_potencia(2,2);
+}
+```
+El resultado es 4.
+
+### Funciones prototipo
+
+Si situamos la definición de la función después de hacer la llamada a la función en el main. Nos da un error.
+
+No podemos llamar a una función que todavía no ha sido definida.
+
+Para evitar este problema, utilizamos funciones prototipo.
+
+Un prototipo es una declaración previa de la función. Informa al compilador que se utilizará esa función y sus características.
+
+Esto es útil para progrmas muy grandes.
+
+Es posible de crearlas en archivos externos. (.h / .hpp). Hace posible la podularización.
+
+```c++
+#include <iostream>
+#include <cmath> 
+using namespace std;  
+
+double elevar_potencia(double base, double exponente); //Función prototipo
+
+int main(){
+    cout << elevar_potencia(2,2); //Llamada
+}
+
+//Declaración
+double elevar_potencia(double base, double exponente){ 
+    return pow(base,exponente); 
+    }
+```
+
+> Cuando la función no me devuelve nada. Ha de ser del tipo void.
+
+```c++
+void elevar_potencia(double base, double exponente){
+    cout << pow(base,exponente) <<endl;
+}
+```
+## Paso de parámetros por valor y referencia <div id="id25"></div>
+* **Por valor:** Pasos de parámetros a la fucnción como lo estamos haciendo hasta ahora. Al hacer la llamada a la función, esta **crea una copia exacta  de los valores** alojada en la función.
+
+    Si los valores originales cambian después de la llamada a la función, en la función los nuevos valores no estarán actualizados.
+
+Ejemplo. una función va a tomar el valor de un número y le va a agignar un nuevo valor 
+
+```c++
+#include <iostream>
+#include <cmath> 
+using namespace std;  
+
+void funcion(int num_f){
+    cout << "Valor: "<<num_f<<" "<<endl;
+    cout << "Nuevo valor para numero: "<<endl;
+    cin >> num_f;
+}
+
+int main(){
+    int numero = 1;
+
+    funcion(numero); //En num_f se guarda una copia de numero
+
+    cout << "Valor al fina: "<<numero<<endl; //Se imprime número, no ha sido modificado, se ha modificado la copia
+}
+```
+![](img/parametro_por_valor1.png)
+
+A pesar de haber introducido un valor, la variable original no se modifica.
+
+Para solucionar esto utilizamos la siguiente propiedad.
+
+* **Por referencia**
+
+```c++
+#include <iostream>
+#include <cmath> 
+using namespace std;  
+
+void funcion(int &num_f){  //con &num_f se asocia a la función la dirección de memoria de la variable 
+    cout << "Valor: "<<num_f<<" "<<endl;
+    cout << "Nuevo valor para numero: "<<endl;
+    cin >> num_f;
+}
+
+int main(){
+    int numero = 1;
+
+    funcion(numero); 
+
+    cout << "Valor al fina: "<<numero<<endl; 
+}
+```
+![](img/valor_por_referencia1.png)
+
+En este caso, la función si modifica el valor de numero, ya que esta accede directamente a la memoria en la que se aloja. No realiza una copia.
+
+#### Utilidades:
+* **por valor**
+    * Operaciones que no requieren modificar el valor original.
+    * Funciones que necesitan garantizar que el valor original no sea modificado.
+* **por referencia**
+    * Evitar copias costosas. Eficiencia del programa.
+    * Devolución de multiples valores.
+    * Polimorfismo.
+
+
+## Parámetros por defecto<div id="id26"></div>
+
+Al declar la función, asignamos un valor contreto a un parámetro.
+
+Al hacer la llamada, pasarle este argumento es opcional. 
+
+Si le pasamos otro valor como argumento, tomarará este valor y no el que le asignamos en su declaración.
+
+Ejemolo. Función que imprime un mensaje una vez. Si se le pasa el argumento opcional, se imprimirá el mensaje varias veces.
+
+```c++
+#include <iostream>
+#include <cmath> 
+using namespace std;  
+
+void mostrar_mensaje(string mensaje,int veces = 1){ //Veces queda definido con valor 1
+    for(int i=0 ;i<veces; i++){
+        cout << mensaje << endl;
+    }
+}
+
+
+int main(){
+    mostrar_mensaje("Hola");
+}
+```
+![](img/parametro_por_defecto1.png)
+
+Imprime el mensaje una vez.
+
+```c++
+#include <iostream>
+#include <cmath> 
+using namespace std;  
+
+void mostrar_mensaje(string mensaje,int veces = 1){ //Veces queda definido con valor 1
+    for(int i=0 ;i<veces; i++){
+        cout << mensaje << endl;
+    }
+}
+
+
+int main(){
+    mostrar_mensaje("Hola",4); //Parámetro opcional con valor 4
+}
+```
+![](img/parametro_por_defecto2.png)
+
+Imprime las veces indicadas el mensaje.
+
+> El parámetro por defecto siempre tiene que estar en último lugar.
+
+> Podemos tener más de un parámetro por defecto.
+
+Ejemplo. Función que me cree ventanas con las características especificadas. Ancho y alto; o pantalla completa; título.
+
+```c++
+#include <iostream>
+#include <cmath> 
+using namespace std;  
+
+void crear_ventana(int alto = 400,int ancho = 600,string titulo = "Nueva ventana",bool completa = false){
+    cout << "Ventana: "<<titulo<<endl
+    <<"Alto: "<<alto<<endl
+    <<"Ancho: "<<ancho<<endl
+    <<"Pantalla completa: "<<(completa?"Si":"No")<<endl<<endl; //Operador ternario, abreviatura de if
+}
+    
+int main(){
+    crear_ventana();
+    crear_ventana(200,400,"menu");
+    crear_ventana(200,400);
+}
+```
+![](img/ejemplo_funciones_2.png)
+
+Como podemos observar, tenemos infinitas opciones utilizando los parámetos por defecto.
+
+## Sobrecarga de funciones<div id="id27"></div>
+No es una característica únicamente de C++. Este concepto está en muchos lenguajes.
+
+> Declarar varias funciones con el mismo nombre, pero con diferente lista de parámetros de entrada.
+
+El tipo de dato de salida no influye.
+
+Declarar varias funciones con la misma lista de parámetros da error.
+
+Cuidado con utilizar parámetros predeterminados. Induce a errores.
+
+### Utilidades
+* Legibilidad del código
+* Abstracción
+* Flexibilidad 
+* Polimorfismo
+
+Ejemplo.
+
+```c++
+#include <iostream>
+#include <cmath> 
+using namespace std;  
+
+int sumar(int a,int b){
+    return a + b;
+}
+int sumar(int a, int b, int c){
+    return a + b + c;
+}
+float sumar(float a, float b){
+    return a + b;
+}
+    
+int main(){
+    cout << sumar(1,1) <<endl;
+    cout << sumar(1,1,1) <<endl;
+    cout << sumar(1.2f,1.2f) <<endl;
+}
+```
+![](img/sobrecarga_funciones1.png)
+
+```c++
+#include <iostream>
+#include <cmath> 
+using namespace std;  
+
+//Funciones con valores por defecto
+
+int mostrar(int a=1){
+    cout << a <<endl;
+}
+int mostrar(int a=2){
+    cout << a <<endl;
+}
+    
+int main(){
+    mostrar();    //Error, no sabemos a que función se refiere
+}
+```
+Esto da error.
+
+Otro caso.
+```c++
+#include <iostream>
+#include <cmath> 
+using namespace std;  
+
+//Funciones con valores por defecto
+
+int mostrar(int a=1){
+    cout << a <<endl;
+}
+int mostrar(int b, int a=2){
+    cout << a << b << endl;
+}
+    
+int main(){
+    mostrar();  //Se refiere a la primera función
+}
+```
+
+
+
 ## <div id="id28"></div>
 ## <div id="id29"></div>
 ## <div id="id30"></div>
+## <div id="id31"></div>
+## <div id="id32"></div>
+## <div id="id33"></div>
+## <div id="id34"></div>
+## <div id="id35"></div>
+## <div id="id36"></div>
+## <div id="id37"></div>
+## <div id="id38"></div>
+## <div id="id39"></div>
+## <div id="id40"></div>
