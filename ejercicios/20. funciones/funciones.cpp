@@ -1,18 +1,20 @@
 #include <iostream>
-#include <cmath> 
 using namespace std;  
 
-//Funciones con valores por defecto
+template <typename T,typename U> //Utilización de genéricos
+int suma(T a,U b){ //Estas dos variables pueden ser de cualquier tipo
+    return a+b;
+}
 
-int mostrar(int a=1){
-    cout << a <<endl;
-}
-int mostrar(int b, int a=2){
-    cout << a << b << endl;
-}
-    
 int main(){
-    mostrar();    //Error, no sabemos a que función se refiere
+    //con dos enteros
+    auto resultado1 = suma(5,3);
+    //con entero y flotante
+    auto resultado2 = suma(1,2.5);
+    //con dos flotantes
+    auto resultado3 = suma(1.5,1.2);
+
+    cout << resultado1 <<" / "<<resultado2<<" / "<<resultado3<<endl;
 }
 
 

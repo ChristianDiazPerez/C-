@@ -28,10 +28,10 @@
 24. [Funciones](#id24)
 25. [Paso de parámetros por valor y referencia](#id25)
 26. [Sobrecarga de funciones](#id26)
-27. [](#id27)
-28. [](#id28)
-29. [](#id29)
-30. [](#id30)
+27. [Funciones inline](#id27)
+28. [Auto-return](#id28)
+29. [Funciones recursivas](#id29)
+30. [Punteros](#id30)
 31. [](#id31)
 32. [](#id32)
 33. [](#id33)
@@ -1741,7 +1741,7 @@ int main(){
 
 Como podemos observar, tenemos infinitas opciones utilizando los parámetos por defecto.
 
-## Sobrecarga de funciones<div id="id27"></div>
+## Sobrecarga de funciones<div id="id26"></div>
 No es una característica únicamente de C++. Este concepto está en muchos lenguajes.
 
 > Declarar varias funciones con el mismo nombre, pero con diferente lista de parámetros de entrada.
@@ -1825,9 +1825,186 @@ int main(){
 
 
 
-## <div id="id28"></div>
-## <div id="id29"></div>
-## <div id="id30"></div>
+## Funciones inline<div id="id27"></div>
+Funciones cuyo cuerpo se va a situar en el mismo punto del código de la llamada.
+
+Reduce el consumo de recuersos en la llamada. Útil para funciones pequeñas que se utilizan constantemente.
+```c++
+inline int sumar(int a, int b){
+    return a+b;
+}
+```
+**Ventajas**
+* Optimización de rendimiento.
+* Menor tiempo de ejecución.
+* El compilador decide. Decide si esa función actuará como inline.
+
+**Desventajas**
+* Impacto en el tamaño del código. 
+    
+    No del código fuente. Del código resultante después de compilar.
+
+## Auto-return<div id="id28"></div>
+
+Deducción automática del tipo de función.
+
+De la misma forma que cuando declaramos una variable con el tipo auto.
+
+Característica introducida en el estandar C++14.
+
+El compilador decide.
+
+**Se utiliza cuando no sabamos exactamente que tipo de dato nos va a devolver la función.**
+
+```c++
+auto suma(int a,int b){
+    return a+b;
+}
+```
+En este caso la función tomará el tipo int.
+
+**Casos de uso**
+* Trabajo con tipos complejos.
+* Trabajo con genéricos.
+* Trabajo con tipos anidados progundos.
+* Trabajo con funciones lambda.
+* Trabajo con variables auto.
+* Trabajo con tipos definidos por el programador.
+* Trabajo con funciones de return condicionales.
+
+```c++
+#include <iostream>
+using namespace std;  
+
+//Plantilla genérica
+template <typename T,typename U> //Utilización de genéricos
+auto suma(T a,U b){ //Estas dos variables pueden ser de cualquier tipo
+    return a+b;
+}
+
+int main(){
+    //con dos enteros
+    auto resultado1 = suma(5,3);
+    //con entero y flotante
+    auto resultado2 = suma(1,2.5);
+    //con dos flotantes
+    auto resultado3 = suma(1.5,1.2);
+
+    cout << resultado1 <<" / "<<resultado2<<" / "<<resultado3<<endl;
+}
+```
+![](img/auto_return1.png)
+
+En este caso, la primera función nos devuelve un entero, y la segunda y tercera un float.
+
+Si por ejemplo. En vez de auto, a la función la pongo como tipo entero.
+
+![](img/auto_return2.png)
+![](img/auto_return3.png)
+
+El progrma no cae. Porque al utilizar genéricos le podemos pasar cualquier tipo como argumento. Pero en los dos últimos casos nos vevuelve 2 enteros cuando nos tendría que devolver dos floats. 3.5 y 2.7 .
+
+## Funciones recursivas<div id="id29"></div>
+Funciones que se llaman a si mismas durante su ejecución.
+```c++
+int funcion(){
+    funcion();
+}
+```
+Su funcionamiento es parecido a un bucle infinito.
+
+**Utilización**
+* Recorrido de estructuras complejas.
+* Algoritmos de búsqueda.
+* Algoritmos de ordenamiento.
+* Algoritmos matemáticos.
+
+**Aspectos a tener en cuenta** 
+* Disponer de caso base. Detiene la recursión.
+* Disponer de un paso recursivo. La llamada a si misma.
+* Consume mas recursos que un bucle infinito. 
+* La legibilidad del codigo aumenta.
+
+Ejemplo. Crear una función que calcule el factorial de un número.
+
+Multiplicar un número por todos los que le preceden. 5!= 5 x 4 x 3 x 2 x 1
+
+Sin utilizar recursividad:
+```c++
+#include <iostream>
+using namespace std;  
+
+auto factorial(int num){
+    int memoria = num;
+    auto resultado=1;
+
+    for (int i=0;i<num;i++){
+        memoria = memoria - 1;
+        if(memoria==0)break;
+        resultado=resultado*memoria; //A cada vuelta le multiplico el número
+    }
+
+    resultado=resultado*num; //Finalmente multiplico el resultado por el numero introducido
+
+    return resultado;
+
+}
+
+int main(){
+    int numero;
+    cout <<"Introduce un numero: "<<endl;
+    cin >> numero;
+    cout <<endl;
+    cout << "!"<<numero<<" es: "<<factorial(numero)<<endl;
+}
+```
+![](img/recursividad1.png)
+
+La función la vamos a hacer recursiva.
+
+```c++
+#include <iostream>
+using namespace std;  
+
+auto factorial(int n){
+    if (n==0){
+        return 1; //Caso base
+    }
+    else{
+        return n*factorial(n-1); //Recursividad
+    }
+
+}
+
+int main(){
+    int numero;
+    cout <<"Introduce un numero: "<<endl;
+    cin >> numero;
+    cout <<endl;
+    cout << "!"<<numero<<" es: "<<factorial(numero)<<endl;
+}
+````
+![](img/recursividad1.png)
+
+Mismo resultado. Pero diferente funcionamiento.
+
+```
+En 1º vuelta: n=5 -> 5 * factorial[4]
+
+En 2º vuelta: n=4 -> 4 * factorial[3]
+
+En 3º vuelta: n=3 -> 3 * factorial[2]
+
+En 4º vuelta: n=2 -> 2 * factorial[1]
+
+En 5º vuelta: n=1 -> 1 * factorial[0] (Factorial de 0 es 1)
+
+en 6º vuelta: n=0  Caso base. Salida del bucle.
+```
+
+A cada vuelta, la operación entra a la espera, porque se hace otra vez la llamada a la función. Hasta que se produce el caso base.
+
+## Punteros<div id="id30"></div>
 ## <div id="id31"></div>
 ## <div id="id32"></div>
 ## <div id="id33"></div>
