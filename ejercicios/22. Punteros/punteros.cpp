@@ -1,22 +1,17 @@
 #include <iostream>
 using namespace std;  
 
-auto factorial(int n){
-    if (n==0){
-        return 1; //Caso base
-    }
-    else{
-        return n*factorial(n-1); //Recursividad
-    }
+int variable = 10; 
 
+void funcion(int * puntero){ //función como parámeto un puntero
+    * puntero = 20;   //Cambiamos el valor a lo que apunta puntero
 }
 
 int main(){
-    int numero;
-    cout <<"Introduce un numero: "<<endl;
-    cin >> numero;
-    cout <<endl;
-    cout << "!"<<numero<<" es: "<<factorial(numero)<<endl;
+    
+    funcion(&variable); //Ejecutamos función con la dirección de la variable
+    cout << variable;
+
 }
 
 

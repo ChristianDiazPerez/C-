@@ -2005,6 +2005,123 @@ en 6º vuelta: n=0  Caso base. Salida del bucle.
 A cada vuelta, la operación entra a la espera, porque se hace otra vez la llamada a la función. Hasta que se produce el caso base.
 
 ## Punteros<div id="id30"></div>
+
+Es una característica fundamental de C++. Permiten una gestión eficiente y detallada de la memoria.
+**Consisten en variables que guardan direcciones de memoria.**
+
+**Utilidades**
+* Acceso directo y modificación de memoria
+* Funciones dinámicas y estructuras de datos.
+* Paso de parámetros por referencia.
+* Arrays y strings.
+* Programación de bajo nivel.
+
+**Ventajas de lenguajes que contien punteros**
+* Control directo de la memoria.
+* Flexibilidad en el manejo de datos.
+* Interación con hardware a bajo nivel.
+* Paso de parámetros por referencia.
+* Compatibilidad con C.
+
+**Ventajas de lenguajes que no contien punteros**
+* Más simplicidad en el desarrollo.
+* Mayor seguridad.
+* Menor preocupación por fallos de memoria.
+
+### Declarar puntero y almacenar direcciones en puntero
+
+```c++
+#include <iostream>
+using namespace std;  
+
+int main(){
+    int variable = 10; //Declaración e inicialización de variable 
+
+    int * puntero; //Declaración de puntero 
+    puntero=&variable; //En el puntero guardamos la dirección de la variable
+
+    cout << variable <<endl;
+
+    cout << puntero <<endl;   ////Imprimir el puntero
+    cout << &variable <<endl; //Imprimir dirección de memoria de la variable 
+}
+```
+![](img/Punteros1.png)
+
+La variable está alojada en una dirección de memoria determinada.
+
+Podemos observar que en el puntero se ha gurdado la direción de memoria de la variable.
+
+El puntero me permite acceder tanto a la rirección de memoria como al valor.
+
+```c++
+#include <iostream>
+using namespace std;  
+
+int main(){
+    int variable = 10; //Declaración e inicialización de variable 
+
+    int * puntero; //Declaración de puntero 
+    puntero=&variable; //En el puntero guardamos la dirección de la variable
+
+    cout << puntero <<endl;   ////Imprimir dirección de puntero
+    cout << *puntero <<endl;   ////Imprimir valor de puntero
+}
+```
+![](img/Punteros2.png)
+
+### Modificar una variable desde el puntero
+
+```c++
+#include <iostream>
+using namespace std;  
+
+int main(){
+    int variable = 10; 
+
+    int * puntero; 
+    puntero=&variable; 
+
+    * puntero=1;  //Modificar una variable desde el puntero
+    cout << *puntero <<endl;   
+}
+```
+![](img/Puntero3.png)
+
+Ejemplo. Puntero como parámetro de una función.
+```c++
+#include <iostream>
+using namespace std;  
+
+int variable = 10; 
+
+void funcion(int * puntero){ //función como parámeto un puntero
+    * puntero = 20;   //Cambiamos el valor a lo que apunta puntero
+}
+
+int main(){
+    
+    funcion(&variable); //Ejecutamos función con la dirección de la variable
+    cout << variable;
+
+}
+```
+![](img/Punteros4.png)
+
+Modifica el valor de la variable.
+
+Estoy es muy útil cunado manejamos volúmenes grandes de información.
+
+Porque al trabajar con punteros, no estamos realizando una copia. Si no que estamos trabajando diréctamente sobre la memoria.
+Es muy eficiente.
+
+## Ubicación de la memoria dinámica
+
+Todos los progrmas, en cualquier lenguaje de programación. 
+Su memoria RAM se divide en 4 partes.
+
+![](img/memoria_datos1.png)
+
 ## <div id="id31"></div>
 ## <div id="id32"></div>
 ## <div id="id33"></div>
