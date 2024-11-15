@@ -2121,6 +2121,41 @@ Todos los progrmas, en cualquier lenguaje de programación.
 Su memoria RAM se divide en 4 partes.
 
 ![](img/memoria_datos1.png)
+Vamos a centrarnos en estas dos:
+
+* **Stack**
+    
+    Gestión de llamadas a funciones, almacenamiento de variables locales, parámetros de las funciones, return de las funciones.
+
+    Tiene un tamaño limitado. Tamaño determinado por el S.O.
+
+    Si no progrmamos adecuadamente podemos sobrepasa la memoria. Stack overflow.
+
+    Su funcionamiento es del tipo LIFO. Last in first out. El último en entrar es el primero en salir. Ya que los datos se almacenan en forma de pila.
+
+    La gestión de esta memoria es automática. Se asocia con el flujo de ejecución de un programa.
+
+    Al ejecutar una función, todo lo que conlleva la función se almacena en el stak. Una vez finalizada la ejecución de la función, esos datos se eliminan del stack.
+
+* **Heap**
+
+    Asignación dinámica de la memoria. Aplica a los punteros.
+    
+    **En C++ es gestionada por el programador.** Asignaciones y liberaciones de memoria.
+
+    Su tamaño es mucho mas flexible que el stack. Se ajusta en función de las necesidades de ejecución del programa.
+
+    Su gestión ineficiente puede dar lugar a problemas. Fragmentación de memoria, fuga de memoria (memory leak).
+
+    
+
+    
+
+
+
+
+
+
 
 ## <div id="id31"></div>
 ## <div id="id32"></div>
