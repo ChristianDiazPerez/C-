@@ -32,8 +32,8 @@
 28. [Auto-return](#id28)
 29. [Funciones recursivas](#id29)
 30. [Punteros](#id30)
-31. [](#id31)
-32. [](#id32)
+31. [Ubicación de la memoria dinámica con punteros](#id31)
+32. [Array con punteros. Aritmética de punteros](#id32)
 33. [](#id33)
 34. [](#id34)
 35. [](#id35)
@@ -2050,7 +2050,7 @@ int main(){
 
 La variable está alojada en una dirección de memoria determinada.
 
-Podemos observar que en el puntero se ha gurdado la direción de memoria de la variable.
+Podemos observar que en el puntero se ha guardado la direción de memoria de la variable.
 
 El puntero me permite acceder tanto a la rirección de memoria como al valor.
 
@@ -2115,7 +2115,7 @@ Estoy es muy útil cunado manejamos volúmenes grandes de información.
 Porque al trabajar con punteros, no estamos realizando una copia. Si no que estamos trabajando diréctamente sobre la memoria.
 Es muy eficiente.
 
-## Ubicación de la memoria dinámica
+## Ubicación de la memoria dinámica con punteros <div id="id31"></div>
 
 Todos los progrmas, en cualquier lenguaje de programación. 
 Su memoria RAM se divide en 4 partes.
@@ -2147,18 +2147,175 @@ Vamos a centrarnos en estas dos:
 
     Su gestión ineficiente puede dar lugar a problemas. Fragmentación de memoria, fuga de memoria (memory leak).
 
+### Donde se almacena un puntero
+
+#### Crear un espacio en el heap
+
+Ejemplo. Vamos a declar un puntero y guardar lo que apunta en el heap.
+
+```c++
+#include <iostream>
+using namespace std;  
+
+int main(){
     
+    int * puntero={nullptr}; //Declaramos el puntero y lo inicializamos como nulo
+    // Si no, este puntero podría tomar cualquier valor que se encuentre en memoria 
 
+    //Asignar espacio de la memoria en el heap. Con el operador new
+    puntero = new int;  //Reserva un espacio en el heap para un entero
+
+    //Imprimir la dirección en mememoria de lo que apunta el puntero (dirección en el heap)
+    cout << puntero << endl;
+    //Imprimir la dirección en mememoria del propio puntero (dirección en el stack)
+    cout << &puntero << endl;
+}
+```
+![](img/memoria_datos3.png)
+
+![](img/memoria_datos2.png)
+
+Es necesara la utilización del **operador new**. Ya que en C++, el heap es una memória dinámica, gestionada diréctamente por el programador.
+
+#### Borrar espacio en el heap
+
+Ejemplo. Delcarar un vector, asignarle un espacio en el heap, y luego borrarle.
+
+```c++
+#include <iostream>
+using namespace std;  
+
+int main(){
     
+    int * puntero= new int; //Declarar un puntero y asignarle memoria en el heap
 
+    * puntero = 10; //Asignar a la variable a la que apunta al puntero valor
 
+    cout <<"Valor del puntero antes de delete: "<<*puntero<<endl;
+    cout <<"Direcion de memoria: "<<puntero<<endl;
 
+    delete puntero; //Borrar espacio de memoria del heap
 
+    //Se convierte en un puntero colgante
+    cout <<"Valor del puntero despues de delete: "<<*puntero<<endl;
+    cout <<"Direcion de memoria: "<<puntero<<endl; //Se sigue almacenamdo la dirección de memoria que ha sido liberada
+}
+```
+![](img/metodo_delete1.png)
+Se convierte en un puntero colgante al elminiar el heap.
 
+Para solucionar esto.
+```c++
+#include <iostream>
+using namespace std;  
 
+int main(){
+    
+    int * puntero= new int; 
 
-## <div id="id31"></div>
-## <div id="id32"></div>
+    * puntero = 10; 
+
+    cout <<"Valor del puntero antes de delete: "<<*puntero<<endl;
+    cout <<"Direcion de memoria: "<<puntero<<endl;
+
+    delete puntero; 
+    puntero = nullptr; //Asignamos la dirección del puntero a null
+
+    cout <<"Valor del puntero despues de delete: "<<*puntero<<endl;
+    cout <<"Direcion de memoria: "<<puntero<<endl; 
+}
+```
+
+Asignamos una nueva dirección del puntero. A una direción no válida. Null.
+
+![](img/metodo_delete2.png)
+
+Esto es una buena práctica.
+
+## Array con punteros. Aritmética de punteros<div id="id32"></div>
+
+Propiedades de los arrays relacionadas con los punteros en C++.
+
+* Un array en C++, es un puntero al primer elemento del array.
+
+* El nombre del arrary, Es la dirección de memoria del primer elemento del array.
+
+* Cuando se usa el nombre del array sin ningún índice, se obtiene la dirección en memoria del primer elemento de array.
+
+```c++
+#include <iostream>
+using namespace std;  
+
+int main(){
+    int cifras[]={10,20,30}; 
+    
+    cout << cifras << endl; // Dirección de memoria del primer elemento del array
+    cout << *cifras << endl; // Valor del primer elemento del array
+}
+```
+![](img/array_puntero1.png)
+* Cuando un puntero apunta al mismo tipo de dato que los elementos de un array, en casi todos los escenarios puedes usar el nombre del puntero y el nombre del array de manera intercambiable para realizar operaciones similares.
+
+    Especiamente en lo que respecta a la indexación y aritmética de punteros. Sin embargo, el "casi" indica que hay excepciones a esta regla.
+
+```c++
+#include <iostream>
+using namespace std;  
+
+int main(){
+    int cifras[]={10,20,30}; 
+
+    //Utilizando el nombre del array
+    cout << cifras << endl; 
+    cout << *cifras << endl; 
+
+    //Utilizando el nobre del puntero del mismo tipo
+    int * puntero{cifras};
+
+    cout << puntero <<endl; 
+    cout << *puntero <<endl; 
+}
+```
+![](img/array_puntero3.png)
+
+Vemos que obtenemos la misma dirección y valor de las dos maneras.
+
+### Aritmética de punteros
+
+Es un concepto de programación relevante en los lenguajes C y C++.
+
+Permite realizar operaciones aritméticas sobre los punteros. 
+
+Los punteros son variables que almacenan direcciones de memoria. 
+
+La aritmética de punteros se utiliza para calcular direcciones de memoria, lo que permite acceder y manipular datos en diferentes posiciones de un array o bloque de memoria.
+
+Esto es una funcionabilidad de muy bajo nivel. Ya que estamos trabajando diréctamente con la memória.
+
+**Operaciones con punteros** 
+
+* Incremento (++)
+
+    Se aumenta su valor para que apunte al siguiente elemento del arreglo.
+    
+    El incremento se realiza en base al tamaño del tipo de dato al que apunta el entero.
+
+    Por ejemplo. Si un puntero de tipo int (suponiendo que un entero tenga un tamaño de 4 bytes) apunta al inicio de un arreglo.
+
+    Al incrementar el puntero, este apuntará 4 bytes adelante en memoria.
+
+* Decremento (--)
+
+    Similar al incrimento. Se decrementa su valor. 
+* Suma (+)
+
+    Sumar un entero a un puntero, para que este avance varios elementos en el arreglo.
+
+    El vance se calcula: multiplicando el tamaño del tipo de dato por el número entero.
+* Resta (-)
+
+    Similar a la suma. 
+
 ## <div id="id33"></div>
 ## <div id="id34"></div>
 ## <div id="id35"></div>
