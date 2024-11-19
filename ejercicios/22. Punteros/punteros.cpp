@@ -13,6 +13,9 @@ int main(){
     cout << *(puntero +2) <<endl;
     cout << "direccion: "<<(puntero + 2) <<endl<<endl;
 
+    puntero = nullptr;
+    puntero = cifras;
+
     cout << "   Valor actual del puntero "<< *(puntero) <<endl<<endl;
 
     cout << "Incrementos de puntero"<<endl<<endl;

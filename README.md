@@ -2316,6 +2316,8 @@ Esto es una funcionabilidad de muy bajo nivel. Ya que estamos trabajando diréct
 
     Similar a la suma. 
 
+    sj
+
 ## <div id="id33"></div>
 ## <div id="id34"></div>
 ## <div id="id35"></div>
