@@ -35,7 +35,7 @@
 31. [Ubicación de la memoria dinámica con punteros](#id31)
 32. [Array con punteros. Aritmética de punteros](#id32)
 33. [Constantes y punteros](#id33)
-34. [Paso de punteros por parámetos](#id34)
+34. [Paso de parámetros por referencia con punteros](#id34)
 35. [](#id35)
 36. [](#id36)
 37. [](#id37)
@@ -2439,7 +2439,7 @@ Interacción de los punteros con las constantes.
     ```
     ![](img/puntero_contante_a_constante1.png)
 
-## Paso de punteros por parámetos <div id="id34"></div>
+## Paso de parámetros por referencia con punteros<div id="id34"></div>
 ## <div id="id35"></div>
 ## <div id="id36"></div>
 ## <div id="id37"></div>
