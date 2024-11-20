@@ -34,8 +34,8 @@
 30. [Punteros](#id30)
 31. [Ubicación de la memoria dinámica con punteros](#id31)
 32. [Array con punteros. Aritmética de punteros](#id32)
-33. [](#id33)
-34. [](#id34)
+33. [Constantes y punteros](#id33)
+34. [Paso de punteros por parámetos](#id34)
 35. [](#id35)
 36. [](#id36)
 37. [](#id37)
@@ -2318,8 +2318,128 @@ Esto es una funcionabilidad de muy bajo nivel. Ya que estamos trabajando diréct
 
     sj
 
-## <div id="id33"></div>
-## <div id="id34"></div>
+Ejemplo. Asociamos un puntero al primer elemento del array. Realizamos aritmética de vectores.
+
+```c++
+#include <iostream>
+using namespace std;  
+
+int main(){
+    int cifras[]={10,20,30,40}; 
+
+    int * puntero = cifras; // Asociamos un puntero al primer elemento del array
+
+    cout << "Antes de hacer el incremento "<< *(puntero)<<endl;
+    puntero ++; //Incremento puntero
+    cout << "Valor final "<< *(puntero)<<endl<<endl;
+
+    cout << "Antes de hacer el incremento "<< *(puntero)<<endl;
+    puntero ++; //Incremento puntero
+    cout << "Valor final "<< *(puntero)<<endl<<endl;
+
+    cout << "Antes de hacer el decremento "<< *(puntero)<<endl;
+    puntero --; //Decremento puntero
+    cout << "Valor final "<< *(puntero)<<endl<<endl;
+
+    cout << "Antes de hacer el incremento de 2 posiciones "<< *(puntero)<<endl;
+    cout << "Valor final "<< *(puntero + 2)<<endl<<endl; //Incremento 2 posiciones diréctamente en el cout
+
+    cout << "Antes de hacer el decremento de 10 posiciones "<< *(puntero)<<endl;
+    cout << "Valor final "<< *(puntero - 10)<<endl<<endl; //Decremento 10 posiciones diréctamente en el cout
+}
+```
+![](img/aritmetica_vectores1.png)
+
+En la última operación incrementamos por un valor fuera de los límites del array.
+Provocamos un desbordamiento de array o out of bounds access. Produce un comportamiento indefinido.
+
+## Constantes y punteros<div id="id33"></div>
+Interacción de los punteros con las constantes. 
+
+3 posibilidades:
+* **Punteros a constantes:**
+
+    Puntero que apunta a un valor constante. 
+    
+    No podemos incrementar el valor mediante el puntero.
+
+    Si podemos hacer que el puntero apunte a otra dirección.
+
+    ```c++
+    #include <iostream>
+    using namespace std;  
+
+    int main(){
+        // Puntero a constante
+        const int constante1= 10; 
+        const int constante2= 20; 
+
+        const int *puntero1 = &constante1; 
+        //Con la palabra reservava const indicamos que apunta a una constante, pero el puntero no ses constante, podiría apuntar a otra constante.
+
+        cout << *puntero1 <<endl;
+        puntero1 = &constante2;
+        cout << *puntero1 <<endl;
+    }
+    ```
+    ![](img/puntero_a_constante1.png)
+    
+    Cambiamos que el puntero apunte a otra variable.
+
+* **Punteros constantes:**
+
+    Puntero cuya dirección de memoria no puede cambiar después de su inicialización.
+
+    Pero si puede cambiar el valor del emento al que apunta. 
+    
+    A menos que este también sea una cosntante.
+
+    ```c++
+    #include <iostream>
+    using namespace std;  
+
+    int main(){
+        // Puntero constante 
+
+        int variable = 10;
+
+        int * const puntero = &variable; 
+        // Con la 1º palabra reservada int, indicamos que apunta a un tipo entero
+        // Con la 2º palabra reservada const despues del *, indicamos que el puntero es constante
+        cout << *puntero << endl;
+        
+        *puntero = 20; //Modificamos la variable, el puntero es constante, cambiamos el valor de variable mediante el puntero
+
+        cout << *puntero << endl;
+    ```
+    ![](img/puntero_constante1.png)
+    
+    La dirección del puntero es constante. Pero el valor de la constante si cambia.
+
+* **Punteros constantes a constantes:**
+
+    Mezcla de las dos anteriores.
+
+    Puntero que no puede cambiar su dirección despues de su inicialización y apunta a una constante.
+    ```c++
+        #include <iostream>
+    using namespace std;  
+
+    int main(){
+        // Puntero constante que apunte a una constante
+
+        const int constante = 10;
+
+        const int * const puntero = &constante; 
+        // Con la 1º palabra reservada const, apunta a una constante 
+        // Con la 2º palabra reservada int, tipo de dato de la constante 
+        // Con la 3º palabra reservada const, puntero constante
+        cout << *puntero << endl;
+    }
+    ```
+    ![](img/puntero_contante_a_constante1.png)
+
+## Paso de punteros por parámetos <div id="id34"></div>
 ## <div id="id35"></div>
 ## <div id="id36"></div>
 ## <div id="id37"></div>

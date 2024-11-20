@@ -2,42 +2,15 @@
 using namespace std;  
 
 int main(){
-    int cifras[]={10,20,30,40}; 
+    // Puntero constante que apunte a una constante
 
-    int * puntero = cifras;
-    
-    cout << *(puntero) <<endl;
-    cout <<"direccion: "<<(puntero) <<endl;
-    cout << *(puntero +1) <<endl;
-    cout <<"direccion: "<<(puntero + 1) <<endl;
-    cout << *(puntero +2) <<endl;
-    cout << "direccion: "<<(puntero + 2) <<endl<<endl;
+    const int constante = 10;
 
-    puntero = nullptr;
-    puntero = cifras;
-
-    cout << "   Valor actual del puntero "<< *(puntero) <<endl<<endl;
-
-    cout << "Incrementos de puntero"<<endl<<endl;
-    cout << *(puntero++) <<endl;
-    cout << *(puntero++) <<endl;
-    cout << *(puntero++) <<endl;
-
-    cout << "   Valor actual del puntero "<< *(puntero) <<endl<<endl;
-
-    cout << "Decrementos de puntero"<<endl<<endl;
-
-    cout << *(puntero--) <<endl;
-    cout << *(puntero--) <<endl;
-    cout << *(puntero--) <<endl;
-
-    cout << "   Valor actual del puntero "<< *(puntero) <<endl<<endl;
-
-    
-   
-
-
-
+    const int * const puntero = &constante; 
+    // Con la 1º palabra reservada const, apunta a una constante 
+    // Con la 2º palabra reservada int, tipo de dato de la constante 
+    // Con la 3º palabra reservada const, puntero constante
+    cout << *puntero << endl;
 }
 
 
