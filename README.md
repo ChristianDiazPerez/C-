@@ -43,6 +43,8 @@
 39. [](#id39)
 40. [](#id40)
 
+1. [Capítulo 1](#capítulo-1)
+
 
 ## Instalación <div id="id1"></div>
 Necesitamos instalar la extension de C/C++ de VScode
@@ -2439,7 +2441,12 @@ Interacción de los punteros con las constantes.
     ```
     ![](img/puntero_contante_a_constante1.png)
 
-## Paso de parámetros por referencia con punteros<div id="id34"></div>
+## Paso de parámetros por referencSia con punteros<div id="id34"></div>
+
+
+
+# capítulo 1
+
 ## <div id="id35"></div>
 ## <div id="id36"></div>
 ## <div id="id37"></div>
