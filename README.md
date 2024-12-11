@@ -1,4 +1,3 @@
-
 # Manual personal de C++
 ## Índice 
 
@@ -2438,7 +2437,26 @@ Interacción de los punteros con las constantes.
     ```
     ![](img/puntero_contante_a_constante1.png)
 
-## Paso de parámetros por referencSia con punteros<div id="id34"></div>
+## Paso de punteros como parámetros<div id="id34"></div>
+
+Características:
+* **Modificación directa**
+    
+    Permite modificar la variable original sin necesidad de retornar un valor y asignarlo sin hacer copias.
+
+* **Eficiencia en la transmisión de datos grandes**
+    
+    Al pasar solo la diracción de memoria de un objeto grande (como arrays o estructuras complejas), se ahorra tiempo y memoria porque no es necesario copiar todo el objeto.
+    
+* **Trabajo con arrays y cadenas**
+    
+   Los arrays se pasan por defecto como punteros a sus primeros elementos. Lo que hace que trabajar con ellos sea natural y eficiente.
+
+* **Gestión de memoria dinaámica**
+    
+    Facilita el trabajo con memoria dinámica (asignada con new o malloc), permitiendo que las funciones modifiquen estructuras de datos complejas o arrays dinámicos.
+    
+
 
 ## <div id="id35"></div>
 ## <div id="id36"></div>
