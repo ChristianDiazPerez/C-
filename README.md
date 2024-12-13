@@ -167,7 +167,9 @@ Apretando este boton el ejecuta las órdenes de la terminal por nosotros.
 
 ![](img/code_runner2.png)
 
-## Elementos de un progrma <div id="id3"></div>
+<div id="id3"></div>
+
+## Elementos de un progrma 
 
 ```C++
 #include <iostream>
@@ -219,7 +221,9 @@ return 0;
 ```
 Las funciones siempre nos devuelven un valor. Excepto las funciones del tipo void.
 
-## Tipos de datos y variables <div id="id4"></div>
+<div id="id4"></div>
+
+## Tipos de datos y variables 
 
 ### Caracteres
 ![](img/caracteres.png)
@@ -280,7 +284,9 @@ En este ejemplo se ve como el flujo del progrma va de arriba a abajo.
 
 Es decir, la variable **C**asa y **c**asa, son dos varibles diferentes. Afectan las mayusculas y minúsculas al nombre de la variable. 
 
-## Introducir dato desde la terminal <div id="id5"></div>
+<div id="id5"></div>
+
+## Introducir dato desde la terminal 
 El usuario da un valor a una variable a través de la consola.
 
 ```c
@@ -292,7 +298,9 @@ primero declaramos la varibale entero salario, Sin darle un valor (inicializarla
 
 Porsteriormente asignamos el valor a través de la la función **cin**, escribiendo el valor en la consola y pulsando enter.
 
-## Constante<div id="id6"></div>
+<div id="id6"></div>
+
+## Constante
 Una constante almacena un valor que **no puede cambiar.**
 
 Se deben declarar e inicializar al mismo tiempo.
@@ -325,8 +333,9 @@ Uso obsoleto.
 #define double iva = 0.21;
 ```
 
+<div id="id7"></div>
 
-## Array<div id="id7"></div>
+## Array
 Estructura que contienen varios valores del mismo tipo.
 
 Almacena valores que tienen algo en común.
@@ -398,7 +407,10 @@ Modificación del valor de un elemento del array. Siempre introduciendo un valor
 ```c++
 mi_array[4]=88;
 ```
-## Array bidimensional<div id="id8"></div>
+
+<div id="id8"></div>
+
+## Array bidimensional
 
 Array que en cada una de su posición se desdobla e incluye otro array.
 Contiene dos índices.
@@ -480,9 +492,9 @@ int main (){
 ```
 ![](img/arraybidimensional3.png)
 
+<div id="id9"></div>
 
-
-## Arrays multidimensionales<div id="id9"></div>
+## Arrays multidimensionales
 
 Arrays de multiples dimensiones.
 
@@ -547,7 +559,9 @@ C++ confia en que el programador no se equivoque.
 
 Este error se puede solucionar con el apartado siguiente.
 
-## Vectores<div id="id10"></div>
+<div id="id10"></div>
+
+## Vectores
 Muy parecido a los arrays.
 
 Es una clase de la librería estándar de C++.
@@ -759,7 +773,9 @@ int main(){
 ```
 ![](img/push_back1.png)
 
-## Operadores<div id="id11"></div>
+<div id="id11"></div>
+
+## Operadores
 
 ### Asignación
 ![](img/Asignacion.png)
@@ -915,13 +931,16 @@ if (calificacion > 8 || (distancia>28 && ingreso < 2000) ){
 ```
 En este caso, para que se ejecute el código del if, calificación debe de ser superior a 8, o que se cumplan las otras dos condiciones a la vez.
 
-## Convenciones <div id="id12"></div>
+<div id="id12"></div>
+
+## Convenciones 
 Recomendaciones para nombrar diferentes elementos en C++.
 
 ![](img/convenciones.png)
 
+<div id="id13"></div>
 
-## Condicional If <div id="id13"></div>
+## Condicional If 
 ```c++
 if(){
 
@@ -1045,9 +1064,9 @@ En este caso, al incluir el operador condicional en un cout, este ha de ir entre
 
 
 
+<div id="id14"></div>
 
-
-## Bucles<div id="id13"></div>
+## Bucles
 2 tipos. 
 * **Determinados**
 
@@ -1064,7 +1083,10 @@ while (condicion){
     //código
 }
 ```
-## Bucle For<div id="id14"></div>
+
+<div id="id15"></div>
+
+## Bucle For
 for (Inicialización ; Condición ; Incremento){Cuerpo 
 }
 ```c++
@@ -1074,7 +1096,9 @@ for (int i=0; i<5; i++){
 ```
 Este bucle se ejecuta 5 veces. i=0, i=1, i=2, i=3 e i=4.
 
-## Bucle For-Each<div id="id15"></div>
+<div id="id16"></div>
+
+## Bucle For-Each
 
 Utilizado para recorrer colecciones, como los arrays o los contenedores (vector,list,set,map,etc).
 
@@ -1161,8 +1185,9 @@ int main(){
 ```
 ![](img/for-each_y_while.png)
 
+<div id="id16"></div>
 
-## Bucle While<div id="id16"></div>
+## Bucle While
 Bucle indeterminado.
 Repite el código un número indeterminado de veces, hasta que se produce una **condición de parada**.
 
@@ -1251,7 +1276,10 @@ int main(){
 }
 ```
 ![](img/ejercicio_bucle_while1.png)
-## Bucle Do-Wile<div id="id17"></div>
+
+<div id="id18"></div>
+
+## Bucle Do-Wile
 Mismo funcionamiento que el bucle while. Además, si no se cumplen la condición. Se ejecuta una única vez en toda la ejecución del progrma.
 
 **Nos asegura que se va a ejecutar al menos una vez.**
@@ -1291,7 +1319,9 @@ int main(){
 ```
 ![](img/do_while1.png)
 
-## Intrucción break<div id="id18"></div>
+<div id="id19"></div>
+
+## Intrucción break
 Al ejecurtarse, sale del bucle sin importar si la condición del bucle se sigue cumpliendo.
 
 Sirve para optimizar el progrma. Ahorrar recursos del sistema.
@@ -1324,7 +1354,9 @@ con el break comentado. Encuenta el nombre, pero sigue recorriendo el vector.
 ![](img/break2.png)
 Incluyendo el break. Al encontrar el nombre, salimos del bubucle.
 
-## Intrucción continue <div id="id19"></div>
+<div id="id20"></div>
+
+## Intrucción continue 
 Al ejecutarse, el bucle deja de ejecutar las acciones para el valor en el que se encuentra y salta al siguiente valor.
 
 Ejemplo. Recorrer numeros del 1 al 5 saltandonos el número 3.
@@ -1371,7 +1403,9 @@ int main(){
 ```
 ![](img/continue2.png)
 
-## Bucles infinitos<div id="id20"></div>
+<div id="id21"></div>
+
+## Bucles infinitos
 En la mayoría de ocasiones se considera un error. El progrma queda atascado.
 
 Hay escenarios en los que pueden ser necesario. Aplicaciones que deban ejecutarse constantemente. 
@@ -1425,7 +1459,9 @@ int main(){
 ```
 ![](img/bucleinfinito1.png)
 
-## Bucles anidados<div id="id21"></div>
+<div id="id22"></div>
+
+## Bucles anidados
 Combinaciones multiples de bucles unos dentro de otros.
 
 Casos de uso:
@@ -1459,7 +1495,9 @@ int main(){
 
 Y continua hasta la del 10.
 
-## Generar números aleatorios<div id="id22"></div>
+<div id="id23"></div>
+
+## Generar números aleatorios
 Utilizamos anteriormente la experesión.
 ```c++
     int numero=rand() % 101;
@@ -1507,7 +1545,9 @@ a la función time() le pasamos el argumento **nullptr**.
 
 Cada vez que se ejecute el progrma, la semilla será diferente, ya que el tiempo no es el mismo.
 
-## Funciones<div id="id24"></div>
+<div id="id24"></div>
+
+## Funciones
 Bloque de código que se identifica con un nombre. Puede tener datos de entrada y devolver datos de salida.
 
 Utilidades:
@@ -1597,7 +1637,11 @@ void elevar_potencia(double base, double exponente){
     cout << pow(base,exponente) <<endl;
 }
 ```
-## Paso de parámetros por valor y referencia <div id="id25"></div>
+
+<div id="id25"></div>
+
+## Paso de parámetros por valor y referencia 
+
 * **Por valor:** Pasos de parámetros a la fucnción como lo estamos haciendo hasta ahora. Al hacer la llamada a la función, esta **crea una copia exacta  de los valores** alojada en la función.
 
     Si los valores originales cambian después de la llamada a la función, en la función los nuevos valores no estarán actualizados.
@@ -1663,8 +1707,9 @@ En este caso, la función si modifica el valor de numero, ya que esta accede dir
     * Devolución de multiples valores.
     * Polimorfismo.
 
+<div id="id26"></div>
 
-## Parámetros por defecto<div id="id26"></div>
+## Parámetros por defecto
 
 Al declar la función, asignamos un valor contreto a un parámetro.
 
@@ -1742,7 +1787,9 @@ int main(){
 
 Como podemos observar, tenemos infinitas opciones utilizando los parámetos por defecto.
 
-## Sobrecarga de funciones<div id="id26"></div>
+<div id="id26"></div>
+
+## Sobrecarga de funciones
 No es una característica únicamente de C++. Este concepto está en muchos lenguajes.
 
 > Declarar varias funciones con el mismo nombre, pero con diferente lista de parámetros de entrada.
@@ -1824,9 +1871,9 @@ int main(){
 }
 ```
 
+<div id="id27"></div>
 
-
-## Funciones inline<div id="id27"></div>
+## Funciones inline
 Funciones cuyo cuerpo se va a situar en el mismo punto del código de la llamada.
 
 Reduce el consumo de recuersos en la llamada. Útil para funciones pequeñas que se utilizan constantemente.
@@ -1845,7 +1892,9 @@ inline int sumar(int a, int b){
     
     No del código fuente. Del código resultante después de compilar.
 
-## Auto-return<div id="id28"></div>
+<div id="id28"></div>
+
+## Auto-return
 
 Deducción automática del tipo de función.
 
@@ -1905,7 +1954,9 @@ Si por ejemplo. En vez de auto, a la función la pongo como tipo entero.
 
 El progrma no cae. Porque al utilizar genéricos le podemos pasar cualquier tipo como argumento. Pero en los dos últimos casos nos vevuelve 2 enteros cuando nos tendría que devolver dos floats. 3.5 y 2.7 .
 
-## Funciones recursivas<div id="id29"></div>
+<div id="id29"></div>
+
+## Funciones recursivas
 Funciones que se llaman a si mismas durante su ejecución.
 ```c++
 int funcion(){
@@ -2005,7 +2056,9 @@ en 6º vuelta: n=0  Caso base. Salida del bucle.
 
 A cada vuelta, la operación entra a la espera, porque se hace otra vez la llamada a la función. Hasta que se produce el caso base.
 
-## Punteros<div id="id30"></div>
+<div id="id30"></div>
+
+## Punteros 
 
 Es una característica fundamental de C++. Permiten una gestión eficiente y detallada de la memoria.
 **Consisten en variables que guardan direcciones de memoria.**
@@ -2116,7 +2169,9 @@ Estoy es muy útil cunado manejamos volúmenes grandes de información.
 Porque al trabajar con punteros, no estamos realizando una copia. Si no que estamos trabajando diréctamente sobre la memoria.
 Es muy eficiente.
 
-## Ubicación de la memoria dinámica con punteros <div id="id31"></div>
+<div id="id31"></div>
+
+## Ubicación de la memoria dinámica con punteros
 
 Todos los progrmas, en cualquier lenguaje de programación. 
 Su memoria RAM se divide en 4 partes.
@@ -2233,7 +2288,9 @@ Asignamos una nueva dirección del puntero. A una direción no válida. Null.
 
 Esto es una buena práctica.
 
-## Array con punteros. Aritmética de punteros<div id="id32"></div>
+<div id="id32"></div>
+
+## Array con punteros. Aritmética de punteros
 
 Propiedades de los arrays relacionadas con los punteros en C++.
 
@@ -2352,7 +2409,9 @@ int main(){
 En la última operación incrementamos por un valor fuera de los límites del array.
 Provocamos un desbordamiento de array o out of bounds access. Produce un comportamiento indefinido.
 
-## Constantes y punteros<div id="id33"></div>
+<div id="id33"></div>
+
+## Constantes y punteros
 Interacción de los punteros con las constantes. 
 
 3 posibilidades:
@@ -2438,7 +2497,9 @@ Interacción de los punteros con las constantes.
     ```
     ![](img/puntero_contante_a_constante1.png)
 
-## Paso de punteros como parámetros<div id="id34"></div>
+<div id="id34"></div>
+
+## Paso de punteros como parámetros
 
 Características:
 * **Modificación directa**
