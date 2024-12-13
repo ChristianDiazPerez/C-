@@ -35,14 +35,16 @@
 32. [Array con punteros. Aritmética de punteros](#id32)
 33. [Constantes y punteros](#id33)
 34. [Paso de parámetros por referencia con punteros](#id34)
-35. [](#id35)
+35. [Puntero devuelto por una función](#id35)
 36. [](#id36)
 37. [](#id37)
 38. [](#id38)
 39. [](#id39)
 40. [](#id40)
 
-## Instalación <div id="id1"></div>
+<div id="id1"></div>
+
+## Instalación
 Necesitamos instalar la extension de C/C++ de VScode
 ![](img/extension.png)
 Si utilizamos windows necesitamos instalar el compilador.
@@ -125,8 +127,9 @@ Al comprobar de nuevo la versión.
 ![](img/terminal_fin.png)
 Con esto ya hemos finalizado completamente la instalación del compilador gcc.
 
+<div id="id2"></div>
 
-## Primer progrma <div id="id2"></div>
+## Primer progrma 
 
 Escribimos un Hola mundo.
 ![](img/progrma11.png)
@@ -2460,14 +2463,70 @@ Características:
     * Acceso directo al original, sin necesidad de desfragmentar.
     * La sintaxis y el maneo son generalmente más sencillos y seguros.
     * No permite trabajo a bajo nivel y trabajo con la memoria.
+
+    > Muy útil para pasar una gran cantidad de datos a una función. Ya que no se realiza una copia en memoria.
+
 * **Pasar un puntero como parámetro**
     * Pasas dirección de memoria de variable.
     * Hay que desreferenciar el puntero para modificar el valor al que apunta.
     * Sintaxis más compleja.
     * Permite el trabajo a bajo nivel y el trabajo directo con la memoria.
 
+Ejemplo. Función que recive un puntéro por parámetro.
+Ese parámero modifica el valor de una varieble externa a la función.
 
-## <div id="id35"></div>
+```c++
+#include <iostream>
+using namespace std;  
+
+void funcion(int * puntero){
+    //Cambio el valor del puntero
+    (*puntero)+=5; //El valor al que apunta el puntero, lo incrementamos en 5
+
+    /*  * puntero = 40;  Esto seria otra posibilidad    */
+}
+
+int main(){
+    int variale_externa=10;
+    cout <<"Variable al principio: "<<variale_externa<<endl;
+    funcion(&variale_externa);
+    cout <<"Variable al final: "<<variale_externa<<endl;
+}
+```
+![](img/Paso_de_puntero_como_parametro.png)
+
+Esto es muy importante cuando trabajamos con objetos muy grandes.
+
+<div id="id35"></div>
+
+## Puntero devuelto por una función
+
+* **Acceso a estructuras de datos o clases**
+
+    Devolviendo un puntero a una instancia, permites que otras martes de tu programa interactúen con ella.
+
+* **Eficiencia en la gestión de memoria**
+
+    Al devolver un puntero, evitas la copia innecesaria de datos, ya que simplemente estás pasando la dirección de memoria donde reside el objeto a los datos.
+
+* **Control sobre la vida útil de los objetos**
+
+    Cuando devuelves un puntero a un objeto creado dinámicamente (por ejemplo, usando new), pudedes controlar cuánto tiempo existe ese objeto. El objeto puede seguir existiendo incluso después de que la función que lo creó haya terminado su ejecución.
+
+* **Funciones que devuelven múltiples valores**
+
+    Devolver un puntero a una estructura o arreglo puede ser una forma más eficiente de devolver múltiples valores, especialmente si el tamaño del resultao no se conoce de antemano.
+
+* **Interfaz de funciones polimórficas**
+
+    Permite que la función devuelva objetos de cualquiera de las clases derivadas, manteniendo la flexibilidad y permitiendo al código que llama tratar esos objetos de manera uniforme a través de punteros a la base de datos. (Tabajo con herencia).
+
+```c++
+
+```
+   
+
+
 ## <div id="id36"></div>
 ## <div id="id37"></div>
 ## <div id="id38"></div>
