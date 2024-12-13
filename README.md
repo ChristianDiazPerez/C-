@@ -2314,8 +2314,6 @@ Esto es una funcionabilidad de muy bajo nivel. Ya que estamos trabajando diréct
 
     Similar a la suma. 
 
-    sj
-
 Ejemplo. Asociamos un puntero al primer elemento del array. Realizamos aritmética de vectores.
 
 ```c++
@@ -2373,7 +2371,7 @@ Interacción de los punteros con las constantes.
         const int constante2= 20; 
 
         const int *puntero1 = &constante1; 
-        //Con la palabra reservava const indicamos que apunta a una constante, pero el puntero no ses constante, podiría apuntar a otra constante.
+        //Con la palabra reservava const indicamos que apunta a una constante, pero el puntero no es constante, podiría apuntar a otra constante.
 
         cout << *puntero1 <<endl;
         puntero1 = &constante2;
@@ -2446,16 +2444,27 @@ Características:
 
 * **Eficiencia en la transmisión de datos grandes**
     
-    Al pasar solo la diracción de memoria de un objeto grande (como arrays o estructuras complejas), se ahorra tiempo y memoria porque no es necesario copiar todo el objeto.
+    Al pasar solo la dirección de memoria de un objeto grande (como arrays o estructuras complejas), se ahorra tiempo y memoria porque no es necesario copiar todo el objeto.
     
 * **Trabajo con arrays y cadenas**
     
    Los arrays se pasan por defecto como punteros a sus primeros elementos. Lo que hace que trabajar con ellos sea natural y eficiente.
 
-* **Gestión de memoria dinaámica**
+* **Gestión de memoria dinámica**
     
     Facilita el trabajo con memoria dinámica (asignada con new o malloc), permitiendo que las funciones modifiquen estructuras de datos complejas o arrays dinámicos.
-    
+
+### Dierencias 
+* **Pasar un parámetro por referencia**
+    * No trabajas directamente con direcciones de memória en el códio.
+    * Acceso directo al original, sin necesidad de desfragmentar.
+    * La sintaxis y el maneo son generalmente más sencillos y seguros.
+    * No permite trabajo a bajo nivel y trabajo con la memoria.
+* **Pasar un puntero como parámetro**
+    * Pasas dirección de memoria de variable.
+    * Hay que desreferenciar el puntero para modificar el valor al que apunta.
+    * Sintaxis más compleja.
+    * Permite el trabajo a bajo nivel y el trabajo directo con la memoria.
 
 
 ## <div id="id35"></div>
